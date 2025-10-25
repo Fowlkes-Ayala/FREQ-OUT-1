@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Splines;
 
 public class HoverboardController : MonoBehaviour
 {
@@ -8,6 +9,8 @@ public class HoverboardController : MonoBehaviour
     [SerializeField] private float strafeSpeed = 3f;
     [SerializeField] private float maxRollAngle = 60f; // Maximum roll angle in degrees
     [SerializeField] private GameObject mesh;
+
+    [SerializeField] private SplineContainer spline;
 
     private Vector2 steerInput = Vector2.zero;
     public void OnSteer(InputValue value)
