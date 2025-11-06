@@ -1,0 +1,47 @@
+{
+ "SoundBanksInfo": {
+  "Platform": "Mac",
+  "BasePlatform": "Mac",
+  "SchemaVersion": "16",
+  "SoundBankVersion": "154",
+  "SoundBanks": [
+   {
+    "Id": "503036617",
+    "Type": "User",
+    "GUID": "{10038EEF-2762-4F82-BB64-B706117A4271}",
+    "Language": "SFX",
+    "Hash": "{B316932F-462B-00EC-72D5-C73BFFB420C8}",
+    "ObjectPath": "\\SoundBanks\\Default Work Unit\\BNK_Master",
+    "ShortName": "BNK_Master",
+    "Path": "BNK_Master.bnk",
+    "Media": [
+     {
+      "Id": "491344075",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "362208__taranp__horn_rip_e4_e5.wav",
+      "CachePath": "EC/{ECDF9977-03E5-4D49-2373-3C98513CC868}.wem"
+     }
+    ],
+    "Events": [
+     {
+      "Id": "1164080211",
+      "Name": "EVT_Test",
+      "ObjectPath": "\\Events\\Default Work Unit\\EVT_Test",
+      "GUID": "{C7615765-1888-4385-8BDA-73D803FA7A5C}",
+      "DurationType": "OneShot",
+      "DurationMin": "1.6521041",
+      "DurationMax": "1.6521041",
+      "MediaRefs": [
+       {
+        "Id": "491344075"
+       }
+      ]
+     }
+    ]
+   }
+  ],
+  "FileHash": "{9CFFA232-6AE8-7802-5255-628A880667AD}"
+ }
+}

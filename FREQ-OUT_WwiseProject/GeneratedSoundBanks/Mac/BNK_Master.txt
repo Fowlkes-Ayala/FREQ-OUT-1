@@ -1,0 +1,6 @@
+Event	ID	Name			Wwise Object Path	Notes
+	1164080211	EVT_Test			\Default Work Unit\EVT_Test	
+
+In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
+	491344075	362208__taranp__horn_rip_e4_e5	C:\Users\danie\Documents\GitHub\FREQ-OUT\FREQ-OUT_WwiseProject\.cache\EC\{ECDF9977-03E5-4D49-2373-3C98513CC868}.wem		\Actor-Mixer Hierarchy\Default Work Unit\362208__taranp__horn_rip_e4_e5		317300
+

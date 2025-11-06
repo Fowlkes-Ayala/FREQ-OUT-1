@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{FBBD2AE0-1C7E-412C-A109-F1C9243D791A}" SchemaVersion="123">
+	<Events>
+		<WorkUnit Name="Default Work Unit" ID="{FBBD2AE0-1C7E-412C-A109-F1C9243D791A}" PersistMode="Standalone">
+			<ChildrenList>
+				<Event Name="EVT_Test" ID="{C7615765-1888-4385-8BDA-73D803FA7A5C}">
+					<ChildrenList>
+						<Action Name="" ID="{91FFC015-49C4-49FF-A486-5D8C2B9744CC}" ShortID="1039921764">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="362208__taranp__horn_rip_e4_e5" ID="{826EB4AB-0633-491D-BEDA-461047A3F685}" WorkUnitID="{5D25ACAD-5191-4401-A706-7ECD1C589282}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+			</ChildrenList>
+		</WorkUnit>
+	</Events>
+</WwiseDocument>
