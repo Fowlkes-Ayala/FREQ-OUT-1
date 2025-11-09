@@ -5,10 +5,7 @@ namespace DefaultNamespace
     public enum CoinPattern
     {
         None,
-        FiveInLine,
-        FiveRandom,
-        TenInLine,
-        ZiGZag
+        SingleCenter
     }
     
     [CreateAssetMenu(fileName = "Song Data", menuName = "Song", order = 0)]
