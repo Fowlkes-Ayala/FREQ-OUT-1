@@ -15,8 +15,6 @@ namespace AK
     {
         static const AkUniqueID EVT_FIRSTMISS = 921806467U;
         static const AkUniqueID EVT_MUSIC_PROTOTYPE = 2835304931U;
-        static const AkUniqueID EVT_SETSOUNDWAY_DRUMS = 4062421897U;
-        static const AkUniqueID EVT_SETSOUNDWAY_SYNTH = 2823406496U;
         static const AkUniqueID EVT_STARTUP = 3332591570U;
         static const AkUniqueID EVT_STOPMISS = 3927013167U;
         static const AkUniqueID EVT_TRANSITION = 1651390242U;
@@ -54,11 +52,6 @@ namespace AK
     {
         static const AkUniqueID RTPC_TRANSITIONPROGRESS = 2184396047U;
     } // namespace GAME_PARAMETERS
-
-    namespace TRIGGERS
-    {
-        static const AkUniqueID TRGR_SOUNDWAYSWITCH = 1864193089U;
-    } // namespace TRIGGERS
 
     namespace BANKS
     {

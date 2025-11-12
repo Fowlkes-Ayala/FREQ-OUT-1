@@ -1,19 +1,13 @@
 Event	ID	Name			Wwise Object Path	Notes
 	921806467	EVT_FirstMiss			\Default Work Unit\EVT_FirstMiss	
 	1651390242	EVT_Transition			\Default Work Unit\EVT_Transition	
-	2823406496	EVT_SetSoundway_Synth			\Default Work Unit\EVT_SetSoundway_Synth	
 	2835304931	EVT_Music_Prototype			\Default Work Unit\EVT_Music_Prototype	
 	3332591570	EVT_Startup			\Default Work Unit\EVT_Startup	
 	3927013167	EVT_StopMiss			\Default Work Unit\EVT_StopMiss	
-	4062421897	EVT_SetSoundway_Drums			\Default Work Unit\EVT_SetSoundway_Drums	
-
-Trigger	ID	Name			Wwise Object Path	Notes
-	1864193089	TRGR_SoundwaySwitch			\Default Work Unit\TRGR_SoundwaySwitch	
 
 In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	117145976	DJ_Scratch_2	C:\Users\danie\Documents\GitHub\FREQ-OUT\FREQ-OUT_WwiseProject\.cache\56\{56E93BD9-2105-74D9-FD05-33D95884D96E}.wem		\Actor-Mixer Hierarchy\Default Work Unit\DJ_Scratch_2		96512
 	399198200	Base	C:\Users\danie\Documents\GitHub\FREQ-OUT\FREQ-OUT_WwiseProject\.cache\CA\{CA30C95D-22BD-659B-181E-124BC6C2AAB1}.wem		\Interactive Music Hierarchy\Default Work Unit\MUS_PrototypeLevel\Base		13312160
 	520452962	Stems	C:\Users\danie\Documents\GitHub\FREQ-OUT\FREQ-OUT_WwiseProject\.cache\94\{949EFCED-D4FF-9C0E-D90C-2FBBE6C86EAE}.wem		\Interactive Music Hierarchy\Default Work Unit\MUS_PrototypeLevel\Stems		13312160
-	600643819	DJ_Scratch_1	C:\Users\danie\Documents\GitHub\FREQ-OUT\FREQ-OUT_WwiseProject\.cache\FD\{FD50FA38-2ED9-7D4D-621E-355E630F11C1}.wem		\Interactive Music Hierarchy\Default Work Unit\MUS_SoundwayTransition\DJ_Scratch_1		114564
 	766056515	Stems	C:\Users\danie\Documents\GitHub\FREQ-OUT\FREQ-OUT_WwiseProject\.cache\B0\{B0E02AB2-B968-ECB0-1FA7-67314750275E}.wem		\Interactive Music Hierarchy\Default Work Unit\MUS_PrototypeLevel\Stems		13312160
 
