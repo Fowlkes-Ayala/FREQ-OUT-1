@@ -30,6 +30,7 @@ public class HoverboardController : MonoBehaviour
     private float swapCooldownTimer;
     private float steerValue = 0f;
     private float splineT = 0f; // normalized position along spline
+    public float GetSplineT() => splineT;
     private Soundway currentSoundway;
 
     
@@ -69,7 +70,7 @@ public class HoverboardController : MonoBehaviour
     {
         if (currentSoundway != null)
         {
-            var spline = currentSoundway.SplineContainer;
+            var spline = currentSoundway.Spline;
             // Advance normalized parameter
             splineT += splineNormalizedSpeed * Time.deltaTime;
             if (splineT > 1f)
@@ -78,7 +79,7 @@ public class HoverboardController : MonoBehaviour
             }
 
             // Sample spline (position + rotation)
-            var sample = SplineUtility.Evaluate(spline.Spline, splineT, out var position,  out var tangent, out var up);
+            var sample = spline.Evaluate(splineT, out var position,  out var tangent, out var up);
             transform.position = position;
             transform.rotation = Quaternion.LookRotation(tangent, up);
             
