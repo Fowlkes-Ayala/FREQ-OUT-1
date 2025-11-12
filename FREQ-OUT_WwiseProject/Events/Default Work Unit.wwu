@@ -3,54 +3,6 @@
 	<Events>
 		<WorkUnit Name="Default Work Unit" ID="{FBBD2AE0-1C7E-412C-A109-F1C9243D791A}" PersistMode="Standalone">
 			<ChildrenList>
-				<Event Name="EVT_SetSoundway_Drums" ID="{34D79AD5-AAC1-42E5-B12F-0D65EE0477E2}">
-					<ChildrenList>
-						<Action Name="" ID="{5849EF6A-5A84-4168-8B04-FEEC6607613E}" ShortID="363422051">
-							<PropertyList>
-								<Property Name="ActionType" Type="int16" Value="22"/>
-							</PropertyList>
-							<ReferenceList>
-								<Reference Name="Target">
-									<ObjectRef Name="STA_Soundway_Drums" ID="{39936BA1-15D0-4F40-8A19-DC8D67BA953C}" WorkUnitID="{F540B1F7-6C66-4B01-99C1-4DE9860FDB84}"/>
-								</Reference>
-							</ReferenceList>
-						</Action>
-						<Action Name="" ID="{1647962B-3A60-4968-89F8-2A2E6B3D9320}" ShortID="1072160683">
-							<PropertyList>
-								<Property Name="ActionType" Type="int16" Value="35"/>
-							</PropertyList>
-							<ReferenceList>
-								<Reference Name="Target">
-									<ObjectRef Name="TRGR_SoundwaySwitch" ID="{C9F65F27-85B9-412C-BF89-34E807A3C464}" WorkUnitID="{B73DED38-EC3E-4779-999E-7181D9E2EEAB}"/>
-								</Reference>
-							</ReferenceList>
-						</Action>
-					</ChildrenList>
-				</Event>
-				<Event Name="EVT_SetSoundway_Synth" ID="{BC99A5A9-7F55-40B1-8156-00FB44FAB7EF}">
-					<ChildrenList>
-						<Action Name="" ID="{CEE53002-3094-4BDA-B0A4-4E866E4A541B}" ShortID="907156554">
-							<PropertyList>
-								<Property Name="ActionType" Type="int16" Value="22"/>
-							</PropertyList>
-							<ReferenceList>
-								<Reference Name="Target">
-									<ObjectRef Name="STA_Soundway_Synth" ID="{5BE15A9E-A959-4D3F-84E4-B60C5AA2E4DB}" WorkUnitID="{F540B1F7-6C66-4B01-99C1-4DE9860FDB84}"/>
-								</Reference>
-							</ReferenceList>
-						</Action>
-						<Action Name="" ID="{AE413CC4-0495-4F6C-BE48-42015592EAF5}" ShortID="304508369">
-							<PropertyList>
-								<Property Name="ActionType" Type="int16" Value="35"/>
-							</PropertyList>
-							<ReferenceList>
-								<Reference Name="Target">
-									<ObjectRef Name="TRGR_SoundwaySwitch" ID="{C9F65F27-85B9-412C-BF89-34E807A3C464}" WorkUnitID="{B73DED38-EC3E-4779-999E-7181D9E2EEAB}"/>
-								</Reference>
-							</ReferenceList>
-						</Action>
-					</ChildrenList>
-				</Event>
 				<Event Name="EVT_Startup" ID="{76FFB887-F508-4316-9927-4D2049B88A10}">
 					<ChildrenList>
 						<Action Name="" ID="{58FC63A8-56FC-4909-9322-433DD1A7BEC7}" ShortID="534203272">

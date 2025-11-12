@@ -13,14 +13,6 @@
 							<ObjectRef Name="EVT_Music_Prototype" ID="{F3DDD2DE-1547-4B2A-8A8A-14CB4E4CD731}" WorkUnitID="{FBBD2AE0-1C7E-412C-A109-F1C9243D791A}"/>
 							<Position X="1" Y="0"/>
 						</Module>
-						<Module>
-							<ObjectRef Name="EVT_SetSoundway_Drums" ID="{34D79AD5-AAC1-42E5-B12F-0D65EE0477E2}" WorkUnitID="{FBBD2AE0-1C7E-412C-A109-F1C9243D791A}"/>
-							<Position X="2" Y="0"/>
-						</Module>
-						<Module>
-							<ObjectRef Name="EVT_SetSoundway_Synth" ID="{BC99A5A9-7F55-40B1-8156-00FB44FAB7EF}" WorkUnitID="{FBBD2AE0-1C7E-412C-A109-F1C9243D791A}"/>
-							<Position X="3" Y="0"/>
-						</Module>
 					</ModuleList>
 					<RTPCValueList ShowAll="true">
 						<RTPCValue>
