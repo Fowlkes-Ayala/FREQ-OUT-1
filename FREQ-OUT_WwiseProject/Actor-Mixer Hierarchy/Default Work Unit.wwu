@@ -3,26 +3,26 @@
 	<AudioObjects>
 		<WorkUnit Name="Default Work Unit" ID="{5D25ACAD-5191-4401-A706-7ECD1C589282}" PersistMode="Standalone">
 			<ChildrenList>
-				<Sound Name="362208__taranp__horn_rip_e4_e5" ID="{826EB4AB-0633-491D-BEDA-461047A3F685}" ShortID="685889899">
+				<Sound Name="DJ_Scratch_2" ID="{AA318C36-123B-4BF5-9925-FDA8545EE5D6}" ShortID="661756938">
 					<ReferenceList>
 						<Reference Name="Conversion">
 							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D039DC9E-C9E7-410D-8808-EF9FB8DFFC42}"/>
 						</Reference>
 						<Reference Name="OutputBus">
-							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{3A074F76-1BE3-44E4-B9A8-E6A26D4C83B4}"/>
+							<ObjectRef Name="BUS_Master" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{3A074F76-1BE3-44E4-B9A8-E6A26D4C83B4}"/>
 						</Reference>
 					</ReferenceList>
 					<ChildrenList>
-						<AudioFileSource Name="362208__taranp__horn_rip_e4_e5" ID="{20ED4720-A3EB-48F7-B6D6-A8FDA70A5342}">
+						<AudioFileSource Name="DJ_Scratch_2" ID="{0E213DB0-ACEE-4AEE-B861-F438ECF1A1F9}">
 							<Language>SFX</Language>
-							<AudioFile>362208__taranp__horn_rip_e4_e5.wav</AudioFile>
+							<AudioFile>DJ_Scratch_2.wav</AudioFile>
 							<MediaIDList>
-								<MediaID ID="491344075"/>
+								<MediaID ID="117145976"/>
 							</MediaIDList>
 						</AudioFileSource>
 					</ChildrenList>
 					<ActiveSourceList>
-						<ActiveSource Name="362208__taranp__horn_rip_e4_e5" ID="{20ED4720-A3EB-48F7-B6D6-A8FDA70A5342}" Platform="Linked"/>
+						<ActiveSource Name="DJ_Scratch_2" ID="{0E213DB0-ACEE-4AEE-B861-F438ECF1A1F9}" Platform="Linked"/>
 					</ActiveSourceList>
 				</Sound>
 			</ChildrenList>

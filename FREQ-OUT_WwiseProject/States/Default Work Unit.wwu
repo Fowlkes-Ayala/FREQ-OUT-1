@@ -1,6 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <WwiseDocument Type="WorkUnit" ID="{F540B1F7-6C66-4B01-99C1-4DE9860FDB84}" SchemaVersion="123">
 	<States>
-		<WorkUnit Name="Default Work Unit" ID="{F540B1F7-6C66-4B01-99C1-4DE9860FDB84}" PersistMode="Standalone"/>
+		<WorkUnit Name="Default Work Unit" ID="{F540B1F7-6C66-4B01-99C1-4DE9860FDB84}" PersistMode="Standalone">
+			<ChildrenList>
+				<StateGroup Name="STA_Soundway" ID="{6CF14BD3-DE25-492B-8324-4DEDCBBEC1BD}">
+					<PropertyList>
+						<Property Name="DefaultTransitionTime" Type="Real64" Value="0"/>
+					</PropertyList>
+					<ChildrenList>
+						<State Name="None" ID="{A4F0F0B3-5BB5-43C9-A5E1-903EA3FC39C7}"/>
+						<State Name="STA_Soundway_Drums" ID="{39936BA1-15D0-4F40-8A19-DC8D67BA953C}"/>
+						<State Name="STA_Soundway_Synth" ID="{5BE15A9E-A959-4D3F-84E4-B60C5AA2E4DB}"/>
+					</ChildrenList>
+				</StateGroup>
+				<StateGroup Name="STA_GameState" ID="{415CB6F3-D743-495E-BB46-E673484ABA15}">
+					<ChildrenList>
+						<State Name="None" ID="{A4C2CAB1-8743-412E-98E2-94B06445036B}"/>
+						<State Name="STA_GameState_Miss" ID="{8509CD22-D5CF-437E-8156-DED2D3C77535}"/>
+						<State Name="STA_GameState_Good" ID="{2CB59336-6888-4555-8A0C-F824861CCA0F}"/>
+					</ChildrenList>
+				</StateGroup>
+			</ChildrenList>
+		</WorkUnit>
 	</States>
 </WwiseDocument>

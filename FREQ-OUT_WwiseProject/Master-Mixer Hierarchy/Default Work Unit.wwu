@@ -3,12 +3,435 @@
 	<Busses>
 		<WorkUnit Name="Default Work Unit" ID="{3A074F76-1BE3-44E4-B9A8-E6A26D4C83B4}" PersistMode="Standalone">
 			<ChildrenList>
-				<Bus Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}">
+				<Bus Name="BUS_Master" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}">
 					<ReferenceList>
 						<Reference Name="AudioDevice" PluginName="System" CompanyID="0" PluginID="174" PluginType="7">
 							<ObjectRef Name="System" ID="{AAC9ABC4-84ED-407D-8189-C58569133292}" WorkUnitID="{E29A9FD9-4EFD-4912-9867-BE3203544B16}"/>
 						</Reference>
 					</ReferenceList>
+					<ChildrenList>
+						<Bus Name="BUS_Music" ID="{1F10D542-ECC1-4CD4-A4AF-4925E62848E6}">
+							<StateInfo>
+								<StateGroupList>
+									<StateGroupInfo>
+										<StateGroupRef Name="STA_GameState" ID="{415CB6F3-D743-495E-BB46-E673484ABA15}"/>
+									</StateGroupInfo>
+								</StateGroupList>
+								<CustomStateList>
+									<CustomState>
+										<StateRef Name="STA_GameState_Miss" ID="{8509CD22-D5CF-437E-8156-DED2D3C77535}"/>
+										<CustomState Name="" ID="{39887C22-B26C-475E-AF35-73BC2D9AD92A}" ShortID="1014364141">
+											<PropertyList>
+												<Property Name="BusVolume" Type="Real64" Value="2"/>
+												<Property Name="Highpass" Type="int16" Value="21"/>
+											</PropertyList>
+										</CustomState>
+									</CustomState>
+									<CustomState>
+										<StateRef Name="STA_GameState_Good" ID="{2CB59336-6888-4555-8A0C-F824861CCA0F}"/>
+										<CustomState Name="" ID="{F2622095-1D1E-44EA-B21F-A862A3296072}" ShortID="329052871"/>
+									</CustomState>
+								</CustomStateList>
+							</StateInfo>
+							<ObjectLists>
+								<ObjectList Name="Effects">
+									<Reference>
+										<Local>
+											<EffectSlot Name="" ID="{43B07DBC-B27C-46F1-87D9-8BD26156F4BE}" ShortID="332938529">
+												<ReferenceList>
+													<Reference Name="Effect">
+														<Custom>
+															<Effect Name="Parametric EQ (Custom)" ID="{030854BB-548C-47BA-AC98-6A90047D695A}" ShortID="290804841" PluginName="Wwise Parametric EQ" CompanyID="0" PluginID="105" PluginType="3">
+																<PropertyList>
+																	<Property Name="FilterTypeBand1" Type="int32" Value="1"/>
+																	<Property Name="OnOffBand3" Type="bool" Value="False"/>
+																</PropertyList>
+																<ObjectLists>
+																	<ObjectList Name="RTPC">
+																		<Reference>
+																			<Local>
+																				<RTPC Name="" ID="{9E93E42B-6E2D-470D-9ED4-BAD570281A14}" ShortID="100481297">
+																					<PropertyList>
+																						<Property Name="PropertyName" Type="string" Value="GainBand2"/>
+																					</PropertyList>
+																					<ReferenceList>
+																						<Reference Name="ControlInput">
+																							<ObjectRef Name="RTPC_TransitionProgress" ID="{EF81D07D-BC4E-40F1-8DD7-F627531D8911}" WorkUnitID="{92104DAC-BCC5-43E3-BF8E-A26F507EE293}"/>
+																						</Reference>
+																						<Reference Name="Curve">
+																							<Custom>
+																								<Curve Name="" ID="{9767BC54-BB4E-4B8B-AC9C-0CE396F30F89}">
+																									<PropertyList>
+																										<Property Name="Flags" Type="int32" Value="3"/>
+																									</PropertyList>
+																									<PointList>
+																										<Point>
+																											<XPos>0</XPos>
+																											<YPos>0</YPos>
+																											<Flags>5</Flags>
+																										</Point>
+																										<Point>
+																											<XPos>0.82132</XPos>
+																											<YPos>13.58174</YPos>
+																											<Flags>0</Flags>
+																										</Point>
+																										<Point>
+																											<XPos>1</XPos>
+																											<YPos>0</YPos>
+																											<Flags>37</Flags>
+																										</Point>
+																									</PointList>
+																								</Curve>
+																							</Custom>
+																						</Reference>
+																					</ReferenceList>
+																				</RTPC>
+																			</Local>
+																		</Reference>
+																		<Reference>
+																			<Local>
+																				<RTPC Name="" ID="{6E8FDE5C-0E2F-45E3-8D37-D54FFB0ACE03}" ShortID="136144726">
+																					<PropertyList>
+																						<Property Name="PropertyName" Type="string" Value="FrequencyBand2"/>
+																					</PropertyList>
+																					<ReferenceList>
+																						<Reference Name="ControlInput">
+																							<ObjectRef Name="RTPC_TransitionProgress" ID="{EF81D07D-BC4E-40F1-8DD7-F627531D8911}" WorkUnitID="{92104DAC-BCC5-43E3-BF8E-A26F507EE293}"/>
+																						</Reference>
+																						<Reference Name="Curve">
+																							<Custom>
+																								<Curve Name="" ID="{D5566272-7B37-42B6-AF38-00EABF386592}">
+																									<PropertyList>
+																										<Property Name="Flags" Type="int32" Value="5"/>
+																									</PropertyList>
+																									<PointList>
+																										<Point>
+																											<XPos>0</XPos>
+																											<YPos>20</YPos>
+																											<Flags>5</Flags>
+																										</Point>
+																										<Point>
+																											<XPos>1</XPos>
+																											<YPos>20000</YPos>
+																											<Flags>37</Flags>
+																										</Point>
+																									</PointList>
+																								</Curve>
+																							</Custom>
+																						</Reference>
+																					</ReferenceList>
+																				</RTPC>
+																			</Local>
+																		</Reference>
+																		<Reference>
+																			<Local>
+																				<RTPC Name="" ID="{BF125FF8-83A7-47CC-BD2F-49C099C940F7}" ShortID="540673163">
+																					<PropertyList>
+																						<Property Name="PropertyName" Type="string" Value="FrequencyBand1"/>
+																					</PropertyList>
+																					<ReferenceList>
+																						<Reference Name="ControlInput">
+																							<ObjectRef Name="RTPC_TransitionProgress" ID="{EF81D07D-BC4E-40F1-8DD7-F627531D8911}" WorkUnitID="{92104DAC-BCC5-43E3-BF8E-A26F507EE293}"/>
+																						</Reference>
+																						<Reference Name="Curve">
+																							<Custom>
+																								<Curve Name="" ID="{EAFB11C6-9834-4BB1-942E-AEB0B606FF40}">
+																									<PropertyList>
+																										<Property Name="Flags" Type="int32" Value="5"/>
+																									</PropertyList>
+																									<PointList>
+																										<Point>
+																											<XPos>0</XPos>
+																											<YPos>20</YPos>
+																											<Flags>5</Flags>
+																										</Point>
+																										<Point>
+																											<XPos>0.50356</XPos>
+																											<YPos>3376.58636</YPos>
+																											<Flags>0</Flags>
+																										</Point>
+																										<Point>
+																											<XPos>1</XPos>
+																											<YPos>20</YPos>
+																											<Flags>37</Flags>
+																										</Point>
+																									</PointList>
+																								</Curve>
+																							</Custom>
+																						</Reference>
+																					</ReferenceList>
+																				</RTPC>
+																			</Local>
+																		</Reference>
+																	</ObjectList>
+																</ObjectLists>
+															</Effect>
+														</Custom>
+													</Reference>
+												</ReferenceList>
+												<StateInfo>
+													<CustomStateList>
+														<CustomState>
+															<StateRef Name="STA_GameState_Miss" ID="{8509CD22-D5CF-437E-8156-DED2D3C77535}"/>
+															<CustomState Name="" ID="{338B9BD8-8CB6-473F-9668-BA555812B95E}" ShortID="737865357"/>
+														</CustomState>
+														<CustomState>
+															<StateRef Name="STA_GameState_Good" ID="{2CB59336-6888-4555-8A0C-F824861CCA0F}"/>
+															<CustomState Name="" ID="{839036F6-0B5D-46BB-910C-BCDCB460896F}" ShortID="671355307"/>
+														</CustomState>
+													</CustomStateList>
+												</StateInfo>
+												<ObjectLists>
+													<ObjectList Name="RTPC">
+														<Reference>
+															<Local>
+																<RTPC Name="" ID="{02817240-50F5-4E6B-BDD5-E000FEBE6D76}" ShortID="991347306">
+																	<PropertyList>
+																		<Property Name="PropertyName" Type="string" Value="Bypass"/>
+																	</PropertyList>
+																	<ReferenceList>
+																		<Reference Name="ControlInput">
+																			<ObjectRef Name="RTPC_TransitionProgress" ID="{EF81D07D-BC4E-40F1-8DD7-F627531D8911}" WorkUnitID="{92104DAC-BCC5-43E3-BF8E-A26F507EE293}"/>
+																		</Reference>
+																		<Reference Name="Curve">
+																			<Custom>
+																				<Curve Name="" ID="{D000AA16-B81B-4158-8DA4-9B12CC50376D}">
+																					<PropertyList>
+																						<Property Name="Flags" Type="int32" Value="65537"/>
+																					</PropertyList>
+																					<PointList>
+																						<Point>
+																							<XPos>0</XPos>
+																							<YPos>0</YPos>
+																							<Flags>5</Flags>
+																						</Point>
+																						<Point>
+																							<XPos>1</XPos>
+																							<YPos>1</YPos>
+																							<Flags>37</Flags>
+																						</Point>
+																					</PointList>
+																				</Curve>
+																			</Custom>
+																		</Reference>
+																	</ReferenceList>
+																</RTPC>
+															</Local>
+														</Reference>
+													</ObjectList>
+												</ObjectLists>
+											</EffectSlot>
+										</Local>
+									</Reference>
+									<Reference>
+										<Local>
+											<EffectSlot Name="" ID="{B8590243-6B56-47F6-B065-045CE9C2C75A}" ShortID="352063648">
+												<ReferenceList>
+													<Reference Name="Effect">
+														<Custom>
+															<Effect Name="Flanger (Custom)" ID="{F2A4EA9C-DC36-4A52-897E-FFDDD9895C27}" ShortID="538447896" PluginName="Wwise Flanger" CompanyID="0" PluginID="125" PluginType="3">
+																<PropertyList>
+																	<Property Name="ModDepth" Type="Real32" Value="100"/>
+																	<Property Name="WetDryMix" Type="Real32" Value="0"/>
+																</PropertyList>
+																<ObjectLists>
+																	<ObjectList Name="RTPC">
+																		<Reference>
+																			<Local>
+																				<RTPC Name="" ID="{5942D5B2-F647-4C0B-AD7F-7F020D0E0F1D}" ShortID="1018864373">
+																					<PropertyList>
+																						<Property Name="PropertyName" Type="string" Value="WetDryMix"/>
+																					</PropertyList>
+																					<ReferenceList>
+																						<Reference Name="ControlInput">
+																							<ObjectRef Name="RTPC_TransitionProgress" ID="{EF81D07D-BC4E-40F1-8DD7-F627531D8911}" WorkUnitID="{92104DAC-BCC5-43E3-BF8E-A26F507EE293}"/>
+																						</Reference>
+																						<Reference Name="Curve">
+																							<Custom>
+																								<Curve Name="" ID="{7DA7EE4B-88DA-4153-ACF0-6285AD941377}">
+																									<PropertyList>
+																										<Property Name="Flags" Type="int32" Value="1"/>
+																									</PropertyList>
+																									<PointList>
+																										<Point>
+																											<XPos>0</XPos>
+																											<YPos>0</YPos>
+																											<Flags>5</Flags>
+																										</Point>
+																										<Point>
+																											<XPos>0.98379</XPos>
+																											<YPos>100</YPos>
+																											<Flags>0</Flags>
+																										</Point>
+																										<Point>
+																											<XPos>1</XPos>
+																											<YPos>0</YPos>
+																											<Flags>37</Flags>
+																										</Point>
+																									</PointList>
+																								</Curve>
+																							</Custom>
+																						</Reference>
+																					</ReferenceList>
+																				</RTPC>
+																			</Local>
+																		</Reference>
+																	</ObjectList>
+																</ObjectLists>
+															</Effect>
+														</Custom>
+													</Reference>
+												</ReferenceList>
+												<StateInfo>
+													<CustomStateList>
+														<CustomState>
+															<StateRef Name="STA_GameState_Miss" ID="{8509CD22-D5CF-437E-8156-DED2D3C77535}"/>
+															<CustomState Name="" ID="{38A55691-E1EA-467B-9FE8-07E65C3C0E38}" ShortID="351730614"/>
+														</CustomState>
+														<CustomState>
+															<StateRef Name="STA_GameState_Good" ID="{2CB59336-6888-4555-8A0C-F824861CCA0F}"/>
+															<CustomState Name="" ID="{D78A3633-ACB4-487F-84AA-1E2C13E4A503}" ShortID="226312973"/>
+														</CustomState>
+													</CustomStateList>
+												</StateInfo>
+												<ObjectLists>
+													<ObjectList Name="RTPC">
+														<Reference>
+															<Local>
+																<RTPC Name="" ID="{7AE1C38F-5980-49FD-AA75-F048DEAAC7F5}" ShortID="743353373">
+																	<PropertyList>
+																		<Property Name="PropertyName" Type="string" Value="Bypass"/>
+																	</PropertyList>
+																	<ReferenceList>
+																		<Reference Name="ControlInput">
+																			<ObjectRef Name="RTPC_TransitionProgress" ID="{EF81D07D-BC4E-40F1-8DD7-F627531D8911}" WorkUnitID="{92104DAC-BCC5-43E3-BF8E-A26F507EE293}"/>
+																		</Reference>
+																		<Reference Name="Curve">
+																			<Custom>
+																				<Curve Name="" ID="{F6AE5DE7-B9E6-47AE-B694-E808BAFF52CC}">
+																					<PropertyList>
+																						<Property Name="Flags" Type="int32" Value="65537"/>
+																					</PropertyList>
+																					<PointList>
+																						<Point>
+																							<XPos>0</XPos>
+																							<YPos>0</YPos>
+																							<Flags>5</Flags>
+																						</Point>
+																						<Point>
+																							<XPos>1</XPos>
+																							<YPos>1</YPos>
+																							<Flags>37</Flags>
+																						</Point>
+																					</PointList>
+																				</Curve>
+																			</Custom>
+																		</Reference>
+																	</ReferenceList>
+																</RTPC>
+															</Local>
+														</Reference>
+													</ObjectList>
+												</ObjectLists>
+											</EffectSlot>
+										</Local>
+									</Reference>
+									<Reference>
+										<Local>
+											<EffectSlot Name="" ID="{666E28ED-7067-4B94-8265-8F47C2AA4B00}" ShortID="856088880">
+												<ReferenceList>
+													<Reference Name="Effect">
+														<Custom>
+															<Effect Name="Pitch Shifter (Custom)" ID="{CCF21250-9A7F-4C47-A1AA-1A2E385A12DE}" ShortID="733251018" PluginName="Wwise Pitch Shifter" CompanyID="0" PluginID="136" PluginType="3">
+																<PropertyList>
+																	<Property Name="DelayTime" Type="Real32" Value="10"/>
+																</PropertyList>
+																<ObjectLists>
+																	<ObjectList Name="RTPC">
+																		<Reference>
+																			<Local>
+																				<RTPC Name="" ID="{0D7591F8-26E4-4265-AA1B-0F4439D3DAAA}" ShortID="314793293">
+																					<PropertyList>
+																						<Property Name="PropertyName" Type="string" Value="Pitch"/>
+																					</PropertyList>
+																					<ReferenceList>
+																						<Reference Name="ControlInput">
+																							<Custom>
+																								<ModulatorTime Name="Modulator Time (Custom)" ID="{D097A12E-C14B-42D6-B1D4-BF78D8566CAD}" ShortID="425030532">
+																									<PropertyList>
+																										<Property Name="TimeModLoops" Type="int32" Value="0"/>
+																										<Property Name="TimeModPlaybackRate" Type="Real64" Value="4"/>
+																									</PropertyList>
+																								</ModulatorTime>
+																							</Custom>
+																						</Reference>
+																						<Reference Name="Curve">
+																							<Custom>
+																								<Curve Name="" ID="{64257ADD-BC7A-46FD-A354-BF5DF442255F}">
+																									<PropertyList>
+																										<Property Name="Flags" Type="int32" Value="1"/>
+																									</PropertyList>
+																									<PointList>
+																										<Point>
+																											<XPos>0</XPos>
+																											<YPos>0</YPos>
+																											<Flags>5</Flags>
+																										</Point>
+																										<Point>
+																											<XPos>0.33</XPos>
+																											<YPos>100</YPos>
+																											<Flags>0</Flags>
+																										</Point>
+																										<Point>
+																											<XPos>0.66</XPos>
+																											<YPos>-100</YPos>
+																											<Flags>0</Flags>
+																										</Point>
+																										<Point>
+																											<XPos>1</XPos>
+																											<YPos>0</YPos>
+																											<Flags>37</Flags>
+																										</Point>
+																									</PointList>
+																								</Curve>
+																							</Custom>
+																						</Reference>
+																					</ReferenceList>
+																				</RTPC>
+																			</Local>
+																		</Reference>
+																	</ObjectList>
+																</ObjectLists>
+															</Effect>
+														</Custom>
+													</Reference>
+												</ReferenceList>
+												<StateInfo>
+													<StatePropertyList>
+														<Property Name="Bypass"/>
+													</StatePropertyList>
+													<CustomStateList>
+														<CustomState>
+															<StateRef Name="STA_GameState_Miss" ID="{8509CD22-D5CF-437E-8156-DED2D3C77535}"/>
+															<CustomState Name="" ID="{0F23ADB5-B832-42D6-8F5B-F227DDC2AD24}" ShortID="715203443"/>
+														</CustomState>
+														<CustomState>
+															<StateRef Name="STA_GameState_Good" ID="{2CB59336-6888-4555-8A0C-F824861CCA0F}"/>
+															<CustomState Name="" ID="{E118873D-5E9A-467D-A781-4FF214E60F87}" ShortID="323431043">
+																<PropertyList>
+																	<Property Name="Bypass" Type="bool" Value="True"/>
+																</PropertyList>
+															</CustomState>
+														</CustomState>
+													</CustomStateList>
+												</StateInfo>
+											</EffectSlot>
+										</Local>
+									</Reference>
+								</ObjectList>
+							</ObjectLists>
+						</Bus>
+					</ChildrenList>
 				</Bus>
 			</ChildrenList>
 		</WorkUnit>

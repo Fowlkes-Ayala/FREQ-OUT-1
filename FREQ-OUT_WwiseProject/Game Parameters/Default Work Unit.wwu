@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <WwiseDocument Type="WorkUnit" ID="{92104DAC-BCC5-43E3-BF8E-A26F507EE293}" SchemaVersion="123">
 	<GameParameters>
-		<WorkUnit Name="Default Work Unit" ID="{92104DAC-BCC5-43E3-BF8E-A26F507EE293}" PersistMode="Standalone"/>
+		<WorkUnit Name="Default Work Unit" ID="{92104DAC-BCC5-43E3-BF8E-A26F507EE293}" PersistMode="Standalone">
+			<ChildrenList>
+				<GameParameter Name="RTPC_TransitionProgress" ID="{EF81D07D-BC4E-40F1-8DD7-F627531D8911}">
+					<PropertyList>
+						<Property Name="FilterTimeDown" Type="Real64" Value="1"/>
+						<Property Name="FilterTimeUp" Type="Real64" Value="1"/>
+						<Property Name="InitialValue" Type="Real64" Value="1"/>
+						<Property Name="Max" Type="Real64" Value="1"/>
+					</PropertyList>
+				</GameParameter>
+			</ChildrenList>
+		</WorkUnit>
 	</GameParameters>
 </WwiseDocument>

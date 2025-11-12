@@ -10,11 +10,37 @@
     "Type": "User",
     "GUID": "{701ECBBD-9C7B-4030-8CDB-749EE5D1C7B9}",
     "Language": "SFX",
-    "Hash": "{E8C73C05-9AC5-A17E-EA11-491BBCB2A45E}",
+    "Hash": "{44C5DC30-182A-251D-29CD-29F8C7A54410}",
     "ObjectPath": "Init",
     "ShortName": "Init",
     "Path": "Init.bnk",
     "Plugins": {
+     "Custom": [
+      {
+       "Id": "290804841",
+       "Name": "Parametric EQ (Custom)",
+       "ObjectPath": "\\Master-Mixer Hierarchy\\Default Work Unit\\BUS_Master\\BUS_Music\\[Effect Slot [0]: (Parametric EQ)]\\Parametric EQ (Custom)",
+       "GUID": "{030854BB-548C-47BA-AC98-6A90047D695A}",
+       "LibName": "Wwise Parametric EQ",
+       "LibId": "6881283"
+      },
+      {
+       "Id": "538447896",
+       "Name": "Flanger (Custom)",
+       "ObjectPath": "\\Master-Mixer Hierarchy\\Default Work Unit\\BUS_Master\\BUS_Music\\[Effect Slot [1]: (Flanger)]\\Flanger (Custom)",
+       "GUID": "{F2A4EA9C-DC36-4A52-897E-FFDDD9895C27}",
+       "LibName": "Wwise Flanger",
+       "LibId": "8192003"
+      },
+      {
+       "Id": "733251018",
+       "Name": "Pitch Shifter (Custom)",
+       "ObjectPath": "\\Master-Mixer Hierarchy\\Default Work Unit\\BUS_Master\\BUS_Music\\[Effect Slot [2]: (Pitch Shifter)]\\Pitch Shifter (Custom)",
+       "GUID": "{CCF21250-9A7F-4C47-A1AA-1A2E385A12DE}",
+       "LibName": "Wwise Pitch Shifter",
+       "LibId": "8912899"
+      }
+     ],
      "AudioDevices": [
       {
        "Id": "2317455096",
@@ -36,14 +62,95 @@
     },
     "Busses": [
      {
-      "Id": "3803692087",
-      "Name": "Master Audio Bus",
-      "ObjectPath": "\\Master-Mixer Hierarchy\\Default Work Unit\\Master Audio Bus",
+      "Id": "1162281553",
+      "Name": "BUS_Music",
+      "ObjectPath": "\\Master-Mixer Hierarchy\\Default Work Unit\\BUS_Master\\BUS_Music",
+      "GUID": "{1F10D542-ECC1-4CD4-A4AF-4925E62848E6}",
+      "PluginRefs": {
+       "Custom": [
+        {
+         "Id": "290804841"
+        },
+        {
+         "Id": "538447896"
+        },
+        {
+         "Id": "733251018"
+        }
+       ]
+      }
+     },
+     {
+      "Id": "3964155266",
+      "Name": "BUS_Master",
+      "ObjectPath": "\\Master-Mixer Hierarchy\\Default Work Unit\\BUS_Master",
       "GUID": "{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}"
+     }
+    ],
+    "GameParameters": [
+     {
+      "Id": "2184396047",
+      "Name": "RTPC_TransitionProgress",
+      "ObjectPath": "\\Game Parameters\\Default Work Unit\\RTPC_TransitionProgress",
+      "GUID": "{EF81D07D-BC4E-40F1-8DD7-F627531D8911}"
+     }
+    ],
+    "StateGroups": [
+     {
+      "Id": "530992273",
+      "Name": "STA_GameState",
+      "ObjectPath": "\\States\\Default Work Unit\\STA_GameState",
+      "GUID": "{415CB6F3-D743-495E-BB46-E673484ABA15}",
+      "States": [
+       {
+        "Id": "748895195",
+        "Name": "None",
+        "ObjectPath": "\\States\\Default Work Unit\\STA_GameState\\None",
+        "GUID": "{A4C2CAB1-8743-412E-98E2-94B06445036B}"
+       },
+       {
+        "Id": "776312611",
+        "Name": "STA_GameState_Good",
+        "ObjectPath": "\\States\\Default Work Unit\\STA_GameState\\STA_GameState_Good",
+        "GUID": "{2CB59336-6888-4555-8A0C-F824861CCA0F}"
+       },
+       {
+        "Id": "2780964940",
+        "Name": "STA_GameState_Miss",
+        "ObjectPath": "\\States\\Default Work Unit\\STA_GameState\\STA_GameState_Miss",
+        "GUID": "{8509CD22-D5CF-437E-8156-DED2D3C77535}"
+       }
+      ]
+     },
+     {
+      "Id": "4107555126",
+      "Name": "STA_Soundway",
+      "ObjectPath": "\\States\\Default Work Unit\\STA_Soundway",
+      "GUID": "{6CF14BD3-DE25-492B-8324-4DEDCBBEC1BD}",
+      "States": [
+       {
+        "Id": "748895195",
+        "Name": "None",
+        "ObjectPath": "\\States\\Default Work Unit\\STA_Soundway\\None",
+        "GUID": "{A4F0F0B3-5BB5-43C9-A5E1-903EA3FC39C7}"
+       },
+       {
+        "Id": "1006606944",
+        "Name": "STA_Soundway_Drums",
+        "ObjectPath": "\\States\\Default Work Unit\\STA_Soundway\\STA_Soundway_Drums",
+        "GUID": "{39936BA1-15D0-4F40-8A19-DC8D67BA953C}"
+       },
+       {
+        "Id": "1564156445",
+        "Name": "STA_Soundway_Synth",
+        "ObjectPath": "\\States\\Default Work Unit\\STA_Soundway\\STA_Soundway_Synth",
+        "GUID": "{5BE15A9E-A959-4D3F-84E4-B60C5AA2E4DB}"
+       }
+      ]
      }
     ]
    }
   ],
-  "FileHash": "{8091FD19-3985-508C-9227-44388F9A71FD}"
+  "FileHash": "{D8FCE9D7-E834-0146-3065-291431775609}"
  }
 }

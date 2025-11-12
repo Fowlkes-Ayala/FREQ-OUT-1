@@ -1,6 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
 <WwiseDocument Type="WorkUnit" ID="{BEBE4449-81B8-415A-9385-F20784116FF1}" SchemaVersion="123">
 	<SoundcasterSessions>
-		<WorkUnit Name="Default Work Unit" ID="{BEBE4449-81B8-415A-9385-F20784116FF1}" PersistMode="Standalone"/>
+		<WorkUnit Name="Default Work Unit" ID="{BEBE4449-81B8-415A-9385-F20784116FF1}" PersistMode="Standalone">
+			<ChildrenList>
+				<SoundcasterSession Name="SC_Music" ID="{57C4C315-BBBD-496B-8869-5F74077BCA71}">
+					<ModuleList>
+						<Module>
+							<ObjectRef Name="EVT_Startup" ID="{76FFB887-F508-4316-9927-4D2049B88A10}" WorkUnitID="{FBBD2AE0-1C7E-412C-A109-F1C9243D791A}"/>
+							<Position X="0" Y="0"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="EVT_Music_Prototype" ID="{F3DDD2DE-1547-4B2A-8A8A-14CB4E4CD731}" WorkUnitID="{FBBD2AE0-1C7E-412C-A109-F1C9243D791A}"/>
+							<Position X="1" Y="0"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="EVT_SetSoundway_Drums" ID="{34D79AD5-AAC1-42E5-B12F-0D65EE0477E2}" WorkUnitID="{FBBD2AE0-1C7E-412C-A109-F1C9243D791A}"/>
+							<Position X="2" Y="0"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="EVT_SetSoundway_Synth" ID="{BC99A5A9-7F55-40B1-8156-00FB44FAB7EF}" WorkUnitID="{FBBD2AE0-1C7E-412C-A109-F1C9243D791A}"/>
+							<Position X="3" Y="0"/>
+						</Module>
+					</ModuleList>
+					<RTPCValueList ShowAll="true">
+						<RTPCValue>
+							<GameParameterRef Name="RTPC_TransitionProgress" ID="{EF81D07D-BC4E-40F1-8DD7-F627531D8911}"/>
+							<Value>0</Value>
+						</RTPCValue>
+					</RTPCValueList>
+					<CurrentStateList ShowAll="true">
+						<CurrentStateRef Name="STA_Soundway_Synth" ID="{5BE15A9E-A959-4D3F-84E4-B60C5AA2E4DB}"/>
+						<CurrentStateRef Name="STA_GameState_Miss" ID="{8509CD22-D5CF-437E-8156-DED2D3C77535}"/>
+					</CurrentStateList>
+					<CurrentSwitchList ShowAll="true"/>
+				</SoundcasterSession>
+			</ChildrenList>
+		</WorkUnit>
 	</SoundcasterSessions>
 </WwiseDocument>
