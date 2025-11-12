@@ -3,11 +3,8 @@ using UnityEngine.Splines;
 
 namespace DefaultNamespace
 {
-    public class Soundway : MonoBehaviour
+    public class Soundway
     {
-        public SplineContainer SplineContainer;
         public Spline Spline;
-        public BezierKnot[] SwitchPoints;
-        
     }
 }

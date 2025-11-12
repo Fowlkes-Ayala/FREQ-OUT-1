@@ -11,10 +11,10 @@ namespace DefaultNamespace
     [CreateAssetMenu(fileName = "Song Data", menuName = "Song", order = 0)]
     public class SongData : ScriptableObject
     {
-        [SerializeField] private int BPM;
-        [SerializeField, Min(0)] private int totalMeasures;
+        [SerializeField] public int BPM;
+        [SerializeField, Min(0)] public int totalMeasures;
 
-        [SerializeField] private CoinPattern[] coinPatterns;
+        [SerializeField] public CoinPattern[] coinPatterns;
 
         private void OnValidate()
         {

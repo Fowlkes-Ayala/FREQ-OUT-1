@@ -8,14 +8,27 @@ namespace DefaultNamespace
 {
     public class SoundwayManager : MonoBehaviour
     {
-        [SerializeField] private List<Soundway> soundways;
+        private List<Soundway> soundways;
         [SerializeField] private SplineContainer mainSplineContainer;
+        public HoverboardController hoverboardController;
+        
+        public SongData songData;
         private float swapTime;
         private Soundway currentSoundway;
         private int currentSoundwayIndex = 0;
 
+        private int lastBeat = -1;
+        
+        public event Action<int> OnBeatChangedEvent;
+        
+
         public static SoundwayManager Instance;
 
+        public bool IsRightmostSoundway()
+        {
+            return currentSoundwayIndex == soundways.Count - 1;
+        }
+        
         public void Awake()
         {
             if (Instance != null && Instance != this)
@@ -26,18 +39,13 @@ namespace DefaultNamespace
             {
                 Instance = this;
             }
-            if (soundways == null) Debug.LogError("SoundwayManager is empty!");
             
-            currentSoundway = soundways[currentSoundwayIndex];
-            for (int i = 0; i < soundways.Count; i++)
+            foreach (var spline in mainSplineContainer.Splines)
             {
-                soundways[i].Spline = mainSplineContainer.Splines[i];
+                Soundway soundway = new Soundway();
+                soundway.Spline = spline;
+                soundways.Add(soundway);
             }
-        }
-        
-        public Soundway GetCurrentSoundway()
-        {
-            return currentSoundway;
         }
 
         public bool SwapSoundways(bool isRight, out Soundway soundway)
@@ -49,7 +57,7 @@ namespace DefaultNamespace
                 {
                     currentSoundway = soundways[++currentSoundwayIndex];
                     soundway = currentSoundway;
-                    return true;
+                    return IsValidTimingForSoundwaySwap();
                 }
                 return false;
             }
@@ -57,20 +65,54 @@ namespace DefaultNamespace
             {
                 currentSoundway = soundways[--currentSoundwayIndex];
                 soundway = currentSoundway;
-                return true;
+                return IsValidTimingForSoundwaySwap();
             }
             return false;
         }
 
-        public bool CheckSoundwayBeforeSwap(Soundway soundway)
+        public bool IsValidTimingForSoundwaySwap()
         {
-            // soundway.SplineContainer.KnotLinkCollection.GetKnotLinks(1);
-            return false;
+            // Beats 7, 15, 23, ...
+            return GetCurrentMeasure() % 8 == 7;
         }
 
-        public bool CheckAvailableSoundwaySwaps(Soundway soundway)
+        public void Update()
         {
-            return false;
+            int currentBeat = GetCurrentBeat();
+            if (currentBeat != lastBeat)
+            {
+                lastBeat = currentBeat;
+                OnBeatChanged(currentBeat);
+            }
+        }
+
+        public void OnBeatChanged(int currentBeat)
+        {
+            
+            OnBeatChangedEvent?.Invoke(currentBeat);
+        }
+        
+        public int GetCurrentBeat()
+        {
+            int totalMeasures = 0;
+            totalMeasures = songData.totalMeasures;
+
+            int totalBeats = Math.Max(1, totalMeasures * 4);
+            float t = Mathf.Clamp01(hoverboardController.GetSplineT());
+            int beat = Mathf.FloorToInt(t * totalBeats);
+            if (beat >= totalBeats) beat = totalBeats - 1; // handle t == 1
+
+            return beat; // zero-based beat index in range [0, totalBeats-1]
+        }
+
+        public int GetCurrentMeasure()
+        {
+            return GetCurrentBeat() / 4;
+        }
+
+        public Soundway GetCurrentSoundway()
+        {
+            return currentSoundway;
         }
         
     }
