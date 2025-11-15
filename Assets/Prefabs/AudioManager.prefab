@@ -46,6 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f5e69949c22bbc45a1ceddaeebcca81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AudioManager
+  CurrentSongData: {fileID: 11400000, guid: 7364c6374a0ee468ea0bd7cee918f97f, type: 2}
 --- !u!114 &1465866540213327093
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -1,5 +1,7 @@
 using System;
+using AK.Wwise;
 using DefaultNamespace;
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Serialization;
@@ -8,13 +10,12 @@ using UnityEngine.Splines;
 public class HoverboardController : MonoBehaviour
 {
     [SerializeField] private GameObject mesh;
-    
+
     [Header("Spline Movement Settings")]
     [SerializeField] private float forwardSpeed = 5f;
     [SerializeField] private float maxRollAngle = 60f; // Maximum roll angle in degrees
     
     [Tooltip("Normalized speed along the spline (0..1 per second).")]
-    [SerializeField, Range(0f, 10f)] private float splineNormalizedSpeed = 0.2f;
     [SerializeField] private bool followSpline = true;
     [SerializeField] private bool loopSpline = true;
     
@@ -32,9 +33,15 @@ public class HoverboardController : MonoBehaviour
     private float splineT = 0f; // normalized position along spline
     public float GetSplineT() => splineT;
     private Soundway currentSoundway;
-
+    private float timePerSegment;
+    
+    private Tween swapTween = null;
     
     private Vector2 steerInput = Vector2.zero;
+
+    private Soundway queuedSoundway = null;
+
+    public bool IsEnabled = false;
     public void OnSteer(InputValue value)
     {
         steerInput = value.Get<Vector2>();
@@ -53,33 +60,49 @@ public class HoverboardController : MonoBehaviour
 
     public void OnSwap()
     {
-        bool hasSwapped = SoundwayManager.Instance.SwapSoundways(swapRight, out var newSoundway);
-        if (hasSwapped)
+        bool canSwap = SoundwayManager.Instance.CanSwapSoundways(swapRight, out var newSoundway);
+        if (canSwap)
         {
-            currentSoundway = newSoundway;
+            SoundwayManager.Instance.QueueSoundwaySwap(newSoundway);
+            queuedSoundway = newSoundway;
         }
     }
     
-    public void Start()
+    public void OnSoundwaySwap()
     {
-        currentSoundway = SoundwayManager.Instance.GetCurrentSoundway();
+        currentSoundway = queuedSoundway;
+        queuedSoundway = null;
     }
 
-
-    public void Update()
+    private void OnMusicStart()
     {
+        IsEnabled = true;
+    }
+    public void Start()
+    {
+        AudioManager.Instance.OnMusicStart += OnMusicStart;
+        AudioManager.Instance.OnSoundwaySwitch += OnSoundwaySwap;
+        currentSoundway = SoundwayManager.Instance.GetCurrentSoundway();
+        var songData = AudioManager.Instance.CurrentSongData;
+        timePerSegment = (songData.totalMeasures * songData.BeatsPerMeasure * 60.0f) / (songData.BPM * SoundwayManager.Instance.SplineSegments);
+    }
+    
+    public void Update()    
+    {
+        if (!IsEnabled) return;
         if (currentSoundway != null)
         {
-            var spline = currentSoundway.Spline;
+            var splineContainer = currentSoundway.SplineContainer;
+            int splineIndex = Mathf.Clamp((int)(splineT), 0, splineContainer.Splines.Count - 1);
+            var spline = splineContainer.Splines[splineIndex];
+            float splineNormalizedSpeed = 1.0f / timePerSegment;
             // Advance normalized parameter
             splineT += splineNormalizedSpeed * Time.deltaTime;
-            if (splineT > 1f)
-            {
-                splineT = loopSpline ? splineT - 1f : 1f;
-            }
+
+            float normalizedT = splineT - Mathf.Floor(splineT);
 
             // Sample spline (position + rotation)
-            var sample = spline.Evaluate(splineT, out var position,  out var tangent, out var up);
+            var sample = spline.Evaluate(normalizedT, out var position,  out var tangent, out var up);
             transform.position = position;
             transform.rotation = Quaternion.LookRotation(tangent, up);
             
@@ -89,6 +112,16 @@ public class HoverboardController : MonoBehaviour
                 Vector3 right = transform.rotation * Vector3.right;
                 transform.position += right * (steerSpeed * steerInput.x * Time.deltaTime);
             }
+        }
+        if (queuedSoundway != null && swapTween == null)
+        {
+            // Vector3 startPos = transform.position;
+            // Vector3 endPos = queuedSoundway.SplineContainer.Splines[0].;
+            // swapTween = transform.DOMove(endPos, swapSpeed).SetEase(Ease.InOutSine).OnComplete(() =>
+            // {
+            //     swapTween = null;
+            //     OnSoundwaySwap();
+            // });
         }
     }
 }

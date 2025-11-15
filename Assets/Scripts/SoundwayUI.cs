@@ -13,7 +13,7 @@ namespace DefaultNamespace
         {
             _soundwayManager = SoundwayManager.Instance;
             DisableBothSoundwayImages();
-            _soundwayManager.OnBeatChangedEvent += OnBeatChanged;
+            AudioManager.Instance.OnBeat += OnBeatChanged;
         }
         
         private void DisableBothSoundwayImages()
@@ -22,7 +22,7 @@ namespace DefaultNamespace
             _leftSoundwayImage.enabled = false;
         }
 
-        private void OnBeatChanged(int currentBeat)
+        private void OnBeatChanged()
         {
             if (_soundwayManager.IsValidTimingForSoundwaySwap())
             {
