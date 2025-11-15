@@ -76,20 +76,14 @@ public class AudioManager : MonoBehaviour
         {
             case AkCallbackType.AK_MusicSyncBeat:
                 // TODO: Spawn coins a certain distance in front of you every beat
-                if (swapSoundwayOnNextBeat)
+                if (m_QueuedSoundway != null && m_QueuedSoundway.IsValid() && CurrentBeat % 4 == 0)
                 {
                     OnSoundwaySwitch?.Invoke();
-                    swapSoundwayOnNextBeat = false;
-                    return;
-                }
-                CurrentBeat++;
-                if (m_QueuedSoundway != null && m_QueuedSoundway.IsValid() && CurrentBeat % 4 == 3)
-                {
                     AkUnitySoundEngine.PostEvent(AudioEventIDs.Transition, m_GameObjectID);
                     m_QueuedSoundway.SetValue();
                     m_QueuedSoundway = null;
-                    swapSoundwayOnNextBeat = true;
                 }
+                CurrentBeat++;
                 OnBeat?.Invoke();
                 break;
             case AkCallbackType.AK_MusicSyncEntry:
