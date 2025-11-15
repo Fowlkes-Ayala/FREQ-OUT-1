@@ -89,20 +89,29 @@ public class HoverboardController : MonoBehaviour
         timePerSegment = (songData.totalMeasures * songData.BeatsPerMeasure * 60.0f) / (songData.BPM * SoundwayManager.Instance.SplineSegments);
     }
     
+    public Spline GetCurrentSpline()
+    {
+        if (currentSoundway != null)
+        {
+            var splineContainer = currentSoundway.SplineContainer;
+            int splineIndex = Mathf.Clamp((int)(splineT), 0, splineContainer.Splines.Count - 1);
+            if (currentSoundway == SoundwayManager.Instance.rightSoundway && splineIndex > 0)
+            {
+                splineIndex--;
+            }
+            return splineContainer.Splines[splineIndex];
+        }
+        return null;
+    }
+    
     public void Update()    
     {
         if (!IsEnabled) return;
         if (currentSoundway != null)
         {
             var splineContainer = currentSoundway.SplineContainer;
-            
-            //Right soundway is one spline shorter
-            int splineIndex = Mathf.Clamp((int)(splineT), 0, splineContainer.Splines.Count - 1);
-            if (currentSoundway == SoundwayManager.Instance.rightSoundway && splineIndex > 0)
-            {
-                splineIndex--;
-            }
-            var spline = splineContainer.Splines[splineIndex];
+
+            var spline = GetCurrentSpline();
             float splineNormalizedSpeed = 1.0f / timePerSegment;
             
             // Advance normalized parameter
@@ -117,6 +126,13 @@ public class HoverboardController : MonoBehaviour
             transform.position = position;
             transform.rotation = Quaternion.LookRotation(tangent, up);
             var splineRight = Vector3.Cross(tangent, up).normalized;
+            
+            // Optionally apply lateral offset along the spline's right vector (strafe)
+            if (Mathf.Abs(steerInput.x) > Mathf.Epsilon)
+            {
+                steerOffset += steerSpeed * steerInput.x * Time.deltaTime;
+                mesh.transform.position += splineRight * (steerOffset);
+            }
         }
         if (queuedSoundway != null && swapTween == null)
         {

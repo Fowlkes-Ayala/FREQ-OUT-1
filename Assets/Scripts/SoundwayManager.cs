@@ -22,6 +22,12 @@ namespace DefaultNamespace
 
         public static SoundwayManager Instance;
 
+
+        public Spline GetCurrentSpline()
+        {
+            return hoverboardController.GetCurrentSpline();    
+        }
+        
         public bool IsRightmostSoundway()
         {
             return currentSoundway == rightSoundway ? true : false;
