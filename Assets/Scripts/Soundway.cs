@@ -3,8 +3,9 @@ using UnityEngine.Splines;
 
 namespace DefaultNamespace
 {
-    public class Soundway
+    public class Soundway : MonoBehaviour
     {
-        public Spline Spline;
+        public SplineContainer SplineContainer;
+        [SerializeField] public AK.Wwise.State SoundwayState;
     }
 }
