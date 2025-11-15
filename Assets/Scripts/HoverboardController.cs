@@ -21,6 +21,8 @@ public class HoverboardController : MonoBehaviour
     
     [Header("Steer Settings")]
     [SerializeField] private float steerSpeed = 3f;
+
+    private float steerOffset = 0f;
     [SerializeField] private float steerMaxPositionOffset = 2f;
 
     [Header("Lane Switch Settings")]
@@ -96,7 +98,7 @@ public class HoverboardController : MonoBehaviour
             
             //Right soundway is one spline shorter
             int splineIndex = Mathf.Clamp((int)(splineT), 0, splineContainer.Splines.Count - 1);
-            if (currentSoundway == SoundwayManager.Instance.rightSoundway)
+            if (currentSoundway == SoundwayManager.Instance.rightSoundway && splineIndex > 0)
             {
                 splineIndex--;
             }
@@ -114,13 +116,7 @@ public class HoverboardController : MonoBehaviour
             var sample = spline.Evaluate(normalizedT, out var position,  out var tangent, out var up);
             transform.position = position;
             transform.rotation = Quaternion.LookRotation(tangent, up);
-            
-            // Optionally apply lateral offset along the spline's right vector (strafe)
-            if (Mathf.Abs(steerInput.x) > Mathf.Epsilon)
-            {
-                Vector3 right = transform.rotation * Vector3.right;
-                transform.position += right * (steerSpeed * steerInput.x * Time.deltaTime);
-            }
+            var splineRight = Vector3.Cross(tangent, up).normalized;
         }
         if (queuedSoundway != null && swapTween == null)
         {
