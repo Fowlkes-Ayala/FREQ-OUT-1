@@ -93,13 +93,22 @@ public class HoverboardController : MonoBehaviour
         if (currentSoundway != null)
         {
             var splineContainer = currentSoundway.SplineContainer;
+            
+            //Right soundway is one spline shorter
             int splineIndex = Mathf.Clamp((int)(splineT), 0, splineContainer.Splines.Count - 1);
+            if (currentSoundway == SoundwayManager.Instance.rightSoundway)
+            {
+                splineIndex--;
+            }
             var spline = splineContainer.Splines[splineIndex];
             float splineNormalizedSpeed = 1.0f / timePerSegment;
+            
             // Advance normalized parameter
             splineT += splineNormalizedSpeed * Time.deltaTime;
 
             float normalizedT = splineT - Mathf.Floor(splineT);
+            
+            
 
             // Sample spline (position + rotation)
             var sample = spline.Evaluate(normalizedT, out var position,  out var tangent, out var up);

@@ -24,7 +24,7 @@ MonoBehaviour:
     ParentPath: Virtual Acoustics\Default Work Unit
     guid: f9c957670176b5479f9f111f6a740cde
     GuidInternal: 
-    m_lastTime: -8584393923029397429
+    m_lastTime: -8584383757509481318
     List: []
   AuxBusWwu:
   - PhysicalPath: Master-Mixer Hierarchy\Default Work Unit.wwu
@@ -38,7 +38,7 @@ MonoBehaviour:
     ParentPath: Master-Mixer Hierarchy\Default Work Unit
     guid: 764f073ae31be444b9a8e6a26d4c83b4
     GuidInternal: 
-    m_lastTime: -8584386686618708353
+    m_lastTime: -8584383757534288847
     List:
     - name: BUS_Master
       guid: d8a41415a61d2a41a17e75ca0c2149f3
@@ -83,7 +83,7 @@ MonoBehaviour:
     ParentPath: SoundBanks\Default Work Unit
     guid: 7bc6021ffa70274597cbe5553457655a
     GuidInternal: 
-    m_lastTime: -8584391821984932615
+    m_lastTime: -8584383757510042313
     List:
     - name: BNK_Master
       guid: ef8e03106227824fbb64b706117a4271
@@ -111,7 +111,7 @@ MonoBehaviour:
     ParentPath: Events\Default Work Unit
     guid: e02abdfb7e1c2c41a109f1c9243d791a
     GuidInternal: 
-    m_lastTime: -8584386684496274309
+    m_lastTime: -8584383757552200406
     List:
     - name: EVT_FirstMiss
       guid: e52d8faea4c6204b9a45f87bae37f947
@@ -128,8 +128,8 @@ MonoBehaviour:
         guid: e52d8faea4c6204b9a45f87bae37f947
       Path: Events\Default Work Unit\EVT_FirstMiss
       maxAttenuation: 0
-      maxDuration: 0.54657596
-      minDuration: 0.54657596
+      maxDuration: -1
+      minDuration: -1
     - name: EVT_Music_Prototype
       guid: ded2ddf347152a4b8a8a14cb4e4cd731
       id: 2835304931
@@ -145,42 +145,8 @@ MonoBehaviour:
         guid: ded2ddf347152a4b8a8a14cb4e4cd731
       Path: Events\Default Work Unit\EVT_Music_Prototype
       maxAttenuation: 0
-      maxDuration: 69.333336
-      minDuration: 69.333336
-    - name: EVT_SetSoundway_Drums
-      guid: d59ad734c1aae542b12f0d65ee0477e2
-      id: 4062421897
-      PathAndIcons:
-      - ElementName: Events
-        ObjectType: 5
-        guid: 00000000000000000000000000000000
-      - ElementName: Default Work Unit
-        ObjectType: 12
-        guid: e02abdfb7e1c2c41a109f1c9243d791a
-      - ElementName: EVT_SetSoundway_Drums
-        ObjectType: 3
-        guid: d59ad734c1aae542b12f0d65ee0477e2
-      Path: Events\Default Work Unit\EVT_SetSoundway_Drums
-      maxAttenuation: 0
-      maxDuration: 0
-      minDuration: 0
-    - name: EVT_SetSoundway_Synth
-      guid: a9a599bc557fb140815600fb44fab7ef
-      id: 2823406496
-      PathAndIcons:
-      - ElementName: Events
-        ObjectType: 5
-        guid: 00000000000000000000000000000000
-      - ElementName: Default Work Unit
-        ObjectType: 12
-        guid: e02abdfb7e1c2c41a109f1c9243d791a
-      - ElementName: EVT_SetSoundway_Synth
-        ObjectType: 3
-        guid: a9a599bc557fb140815600fb44fab7ef
-      Path: Events\Default Work Unit\EVT_SetSoundway_Synth
-      maxAttenuation: 0
-      maxDuration: 0
-      minDuration: 0
+      maxDuration: -1
+      minDuration: -1
     - name: EVT_Startup
       guid: 87b8ff7608f5164399274d2049b88a10
       id: 3332591570
@@ -196,8 +162,8 @@ MonoBehaviour:
         guid: 87b8ff7608f5164399274d2049b88a10
       Path: Events\Default Work Unit\EVT_Startup
       maxAttenuation: 0
-      maxDuration: 0
-      minDuration: 0
+      maxDuration: -1
+      minDuration: -1
     - name: EVT_StopMiss
       guid: 13933301915044409885cfa8c5e108bd
       id: 3927013167
@@ -213,8 +179,8 @@ MonoBehaviour:
         guid: 13933301915044409885cfa8c5e108bd
       Path: Events\Default Work Unit\EVT_StopMiss
       maxAttenuation: 0
-      maxDuration: 0
-      minDuration: 0
+      maxDuration: -1
+      minDuration: -1
     - name: EVT_Transition
       guid: 58a850650301d84c8bc69b31ffa6bc94
       id: 1651390242
@@ -230,8 +196,8 @@ MonoBehaviour:
         guid: 58a850650301d84c8bc69b31ffa6bc94
       Path: Events\Default Work Unit\EVT_Transition
       maxAttenuation: 0
-      maxDuration: 0
-      minDuration: 0
+      maxDuration: -1
+      minDuration: -1
   RtpcWwu:
   - PhysicalPath: Game Parameters\Default Work Unit.wwu
     PathAndIcons:
@@ -244,7 +210,7 @@ MonoBehaviour:
     ParentPath: Game Parameters\Default Work Unit
     guid: ac4d1092c5bce343bf8ea26f507ee293
     GuidInternal: 
-    m_lastTime: -8584386715400001557
+    m_lastTime: -8584383757551942856
     List:
     - name: RTPC_TransitionProgress
       guid: 7dd081ef4ebcf1408dd7f627531d8911
@@ -272,7 +238,7 @@ MonoBehaviour:
     ParentPath: States\Default Work Unit
     guid: f7b140f5666c014b99c14de9860fdb84
     GuidInternal: 
-    m_lastTime: -8584386692607572194
+    m_lastTime: -8584383757509821546
     List:
     - name: STA_GameState
       guid: f3b65c4143d75e49bb46e673484aba15
@@ -418,7 +384,7 @@ MonoBehaviour:
     ParentPath: Switches\Default Work Unit
     guid: 049589b93809fa489d75cadaa472dce7
     GuidInternal: 
-    m_lastTime: -8584393923030791388
+    m_lastTime: -8584383757509726806
     List: []
   TriggerWwu:
   - PhysicalPath: Triggers\Default Work Unit.wwu
@@ -432,22 +398,8 @@ MonoBehaviour:
     ParentPath: Triggers\Default Work Unit
     guid: 38ed3db73eec7947999e7181d9e2eeab
     GuidInternal: 
-    m_lastTime: -8584386729255222260
-    List:
-    - name: TRGR_SoundwaySwitch
-      guid: 275ff6c9b9852c41bf8934e807a3c464
-      id: 1864193089
-      PathAndIcons:
-      - ElementName: Triggers
-        ObjectType: 5
-        guid: 00000000000000000000000000000000
-      - ElementName: Default Work Unit
-        ObjectType: 12
-        guid: 38ed3db73eec7947999e7181d9e2eeab
-      - ElementName: TRGR_SoundwaySwitch
-        ObjectType: 14
-        guid: 275ff6c9b9852c41bf8934e807a3c464
-      Path: Triggers\Default Work Unit\TRGR_SoundwaySwitch
+    m_lastTime: -8584383757509584364
+    List: []
   ExpandedFileSystemItemIds: 
   ExpandedWaapiItemIds: 1000000011000000
   AutoSyncSelection: 0

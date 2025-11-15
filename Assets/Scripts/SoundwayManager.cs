@@ -11,8 +11,8 @@ namespace DefaultNamespace
         private List<Soundway> soundways;
         public int SplineSegments = 6;
         [SerializeField] private bool startOnLeftSoundway = true;
-        [SerializeField] private Soundway leftSoundway;
-        [SerializeField] private Soundway rightSoundway;
+        public Soundway leftSoundway;
+        public Soundway rightSoundway;
         public HoverboardController hoverboardController;
         
         private float swapTime;
