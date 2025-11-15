@@ -128,8 +128,8 @@ MonoBehaviour:
         guid: e52d8faea4c6204b9a45f87bae37f947
       Path: Events\Default Work Unit\EVT_FirstMiss
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 0.54657596
+      minDuration: 0.54657596
     - name: EVT_Music_Prototype
       guid: ded2ddf347152a4b8a8a14cb4e4cd731
       id: 2835304931
@@ -145,8 +145,8 @@ MonoBehaviour:
         guid: ded2ddf347152a4b8a8a14cb4e4cd731
       Path: Events\Default Work Unit\EVT_Music_Prototype
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 69.333336
+      minDuration: 69.333336
     - name: EVT_Startup
       guid: 87b8ff7608f5164399274d2049b88a10
       id: 3332591570
@@ -162,8 +162,8 @@ MonoBehaviour:
         guid: 87b8ff7608f5164399274d2049b88a10
       Path: Events\Default Work Unit\EVT_Startup
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 0
+      minDuration: 0
     - name: EVT_StopMiss
       guid: 13933301915044409885cfa8c5e108bd
       id: 3927013167
@@ -179,8 +179,8 @@ MonoBehaviour:
         guid: 13933301915044409885cfa8c5e108bd
       Path: Events\Default Work Unit\EVT_StopMiss
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 0
+      minDuration: 0
     - name: EVT_Transition
       guid: 58a850650301d84c8bc69b31ffa6bc94
       id: 1651390242
@@ -196,8 +196,8 @@ MonoBehaviour:
         guid: 58a850650301d84c8bc69b31ffa6bc94
       Path: Events\Default Work Unit\EVT_Transition
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 0
+      minDuration: 0
   RtpcWwu:
   - PhysicalPath: Game Parameters\Default Work Unit.wwu
     PathAndIcons:

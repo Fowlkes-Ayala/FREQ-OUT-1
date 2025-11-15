@@ -73,6 +73,13 @@
 								</Reference>
 							</ReferenceList>
 						</Action>
+						<Action Name="" ID="{CB88B6AA-549E-474A-B1F6-46A5DC106CCF}" ShortID="113058726">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="DJ_Scratch_1" ID="{7732FDFB-FD5F-4098-A166-BE78D738E616}" WorkUnitID="{5D25ACAD-5191-4401-A706-7ECD1C589282}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
 					</ChildrenList>
 				</Event>
 				<Event Name="EVT_FirstMiss" ID="{AE8F2DE5-C6A4-4B20-9A45-F87BAE37F947}">
@@ -105,6 +112,54 @@
 							<ReferenceList>
 								<Reference Name="Target">
 									<ObjectRef Name="STA_GameState_Good" ID="{2CB59336-6888-4555-8A0C-F824861CCA0F}" WorkUnitID="{F540B1F7-6C66-4B01-99C1-4DE9860FDB84}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Set_State_STA_Soundway_Drums" ID="{4AC738CF-5F72-402A-9869-E6D91DB5BC0A}">
+					<ChildrenList>
+						<Action Name="" ID="{CB851DCC-8A86-4D06-B163-98CBF0DA3B8C}" ShortID="724059839">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="22"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="STA_Soundway_Drums" ID="{39936BA1-15D0-4F40-8A19-DC8D67BA953C}" WorkUnitID="{F540B1F7-6C66-4B01-99C1-4DE9860FDB84}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+						<Action Name="" ID="{ADE1E0E7-04F0-4133-9D3E-6342D825F277}" ShortID="498147487">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="41"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="EVT_Transition" ID="{6550A858-0103-4CD8-8BC6-9B31FFA6BC94}" WorkUnitID="{FBBD2AE0-1C7E-412C-A109-F1C9243D791A}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Set_State_STA_Soundway_Synth" ID="{3973EE83-53D0-4207-8803-C3E030C490A1}">
+					<ChildrenList>
+						<Action Name="" ID="{ABB56A16-C762-447F-9479-D1DD0A02BD7B}" ShortID="954756896">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="22"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="STA_Soundway_Synth" ID="{5BE15A9E-A959-4D3F-84E4-B60C5AA2E4DB}" WorkUnitID="{F540B1F7-6C66-4B01-99C1-4DE9860FDB84}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+						<Action Name="" ID="{9B96C26B-FBD4-4E5D-8207-2E5D23DBF5AA}" ShortID="39346660">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="41"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="EVT_Transition" ID="{6550A858-0103-4CD8-8BC6-9B31FFA6BC94}" WorkUnitID="{FBBD2AE0-1C7E-412C-A109-F1C9243D791A}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>
