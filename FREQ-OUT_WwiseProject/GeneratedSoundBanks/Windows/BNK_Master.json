@@ -10,38 +10,202 @@
     "Type": "User",
     "GUID": "{10038EEF-2762-4F82-BB64-B706117A4271}",
     "Language": "SFX",
-    "Hash": "{B316932F-462B-00EC-72D5-C73BFFB420C8}",
+    "Hash": "{222479EC-EE98-06DE-9025-75FE4F78E0F0}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\BNK_Master",
     "ShortName": "BNK_Master",
     "Path": "BNK_Master.bnk",
     "Media": [
      {
-      "Id": "491344075",
+      "Id": "117145976",
       "Language": "SFX",
       "Streaming": "false",
       "Location": "Memory",
-      "ShortName": "362208__taranp__horn_rip_e4_e5.wav",
-      "CachePath": "EC/{ECDF9977-03E5-4D49-2373-3C98513CC868}.wem"
+      "ShortName": "DJ_Scratch_2.wav",
+      "CachePath": "56/{56E93BD9-2105-74D9-FD05-33D95884D96E}.wem"
+     },
+     {
+      "Id": "399198200",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "BeatRacer OST#1 (v3).wav",
+      "CachePath": "CA/{CA30C95D-22BD-659B-181E-124BC6C2AAB1}.wem"
+     },
+     {
+      "Id": "520452962",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "BeatRacer Stem#1 (v2).wav",
+      "CachePath": "94/{949EFCED-D4FF-9C0E-D90C-2FBBE6C86EAE}.wem"
+     },
+     {
+      "Id": "766056515",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "BeatRacer Stem#2 (v2).wav",
+      "CachePath": "B0/{B0E02AB2-B968-ECB0-1FA7-67314750275E}.wem"
      }
     ],
     "Events": [
      {
-      "Id": "1164080211",
-      "Name": "EVT_Test",
-      "ObjectPath": "\\Events\\Default Work Unit\\EVT_Test",
-      "GUID": "{C7615765-1888-4385-8BDA-73D803FA7A5C}",
+      "Id": "921806467",
+      "Name": "EVT_FirstMiss",
+      "ObjectPath": "\\Events\\Default Work Unit\\EVT_FirstMiss",
+      "GUID": "{AE8F2DE5-C6A4-4B20-9A45-F87BAE37F947}",
       "DurationType": "OneShot",
-      "DurationMin": "1.6521041",
-      "DurationMax": "1.6521041",
+      "DurationMin": "0.54657596",
+      "DurationMax": "0.54657596",
       "MediaRefs": [
        {
-        "Id": "491344075"
+        "Id": "117145976"
+       }
+      ],
+      "ActionSetState": [
+       {
+        "GroupId": "530992273",
+        "Id": "2780964940",
+        "Name": "STA_GameState_Miss",
+        "ObjectPath": "\\States\\Default Work Unit\\STA_GameState\\STA_GameState_Miss",
+        "GUID": "{8509CD22-D5CF-437E-8156-DED2D3C77535}"
+       }
+      ]
+     },
+     {
+      "Id": "2835304931",
+      "Name": "EVT_Music_Prototype",
+      "ObjectPath": "\\Events\\Default Work Unit\\EVT_Music_Prototype",
+      "GUID": "{F3DDD2DE-1547-4B2A-8A8A-14CB4E4CD731}",
+      "DurationType": "OneShot",
+      "DurationMin": "69.333336",
+      "DurationMax": "69.333336",
+      "MediaRefs": [
+       {
+        "Id": "399198200"
+       },
+       {
+        "Id": "520452962"
+       },
+       {
+        "Id": "766056515"
+       }
+      ],
+      "ActionSetState": [
+       {
+        "GroupId": "4107555126",
+        "Id": "1564156445",
+        "Name": "STA_Soundway_Synth",
+        "ObjectPath": "\\States\\Default Work Unit\\STA_Soundway\\STA_Soundway_Synth",
+        "GUID": "{5BE15A9E-A959-4D3F-84E4-B60C5AA2E4DB}"
+       }
+      ]
+     },
+     {
+      "Id": "3332591570",
+      "Name": "EVT_Startup",
+      "ObjectPath": "\\Events\\Default Work Unit\\EVT_Startup",
+      "GUID": "{76FFB887-F508-4316-9927-4D2049B88A10}",
+      "MaxAttenuation": "0",
+      "DurationType": "OneShot",
+      "DurationMin": "0",
+      "DurationMax": "0",
+      "ActionSetState": [
+       {
+        "GroupId": "530992273",
+        "Id": "776312611",
+        "Name": "STA_GameState_Good",
+        "ObjectPath": "\\States\\Default Work Unit\\STA_GameState\\STA_GameState_Good",
+        "GUID": "{2CB59336-6888-4555-8A0C-F824861CCA0F}"
+       }
+      ]
+     },
+     {
+      "Id": "3927013167",
+      "Name": "EVT_StopMiss",
+      "ObjectPath": "\\Events\\Default Work Unit\\EVT_StopMiss",
+      "GUID": "{01339313-5091-4044-9885-CFA8C5E108BD}",
+      "MaxAttenuation": "0",
+      "DurationType": "OneShot",
+      "DurationMin": "0",
+      "DurationMax": "0",
+      "ActionSetState": [
+       {
+        "GroupId": "530992273",
+        "Id": "776312611",
+        "Name": "STA_GameState_Good",
+        "ObjectPath": "\\States\\Default Work Unit\\STA_GameState\\STA_GameState_Good",
+        "GUID": "{2CB59336-6888-4555-8A0C-F824861CCA0F}"
+       }
+      ]
+     },
+     {
+      "Id": "1651390242",
+      "Name": "EVT_Transition",
+      "ObjectPath": "\\Events\\Default Work Unit\\EVT_Transition",
+      "GUID": "{6550A858-0103-4CD8-8BC6-9B31FFA6BC94}",
+      "MaxAttenuation": "0",
+      "DurationType": "OneShot",
+      "DurationMin": "0",
+      "DurationMax": "0"
+     }
+    ],
+    "StateGroups": [
+     {
+      "Id": "530992273",
+      "Name": "STA_GameState",
+      "ObjectPath": "\\States\\Default Work Unit\\STA_GameState",
+      "GUID": "{415CB6F3-D743-495E-BB46-E673484ABA15}",
+      "States": [
+       {
+        "Id": "748895195",
+        "Name": "None",
+        "ObjectPath": "\\States\\Default Work Unit\\STA_GameState\\None",
+        "GUID": "{A4C2CAB1-8743-412E-98E2-94B06445036B}"
+       },
+       {
+        "Id": "776312611",
+        "Name": "STA_GameState_Good",
+        "ObjectPath": "\\States\\Default Work Unit\\STA_GameState\\STA_GameState_Good",
+        "GUID": "{2CB59336-6888-4555-8A0C-F824861CCA0F}"
+       },
+       {
+        "Id": "2780964940",
+        "Name": "STA_GameState_Miss",
+        "ObjectPath": "\\States\\Default Work Unit\\STA_GameState\\STA_GameState_Miss",
+        "GUID": "{8509CD22-D5CF-437E-8156-DED2D3C77535}"
+       }
+      ]
+     },
+     {
+      "Id": "4107555126",
+      "Name": "STA_Soundway",
+      "ObjectPath": "\\States\\Default Work Unit\\STA_Soundway",
+      "GUID": "{6CF14BD3-DE25-492B-8324-4DEDCBBEC1BD}",
+      "States": [
+       {
+        "Id": "748895195",
+        "Name": "None",
+        "ObjectPath": "\\States\\Default Work Unit\\STA_Soundway\\None",
+        "GUID": "{A4F0F0B3-5BB5-43C9-A5E1-903EA3FC39C7}"
+       },
+       {
+        "Id": "1006606944",
+        "Name": "STA_Soundway_Drums",
+        "ObjectPath": "\\States\\Default Work Unit\\STA_Soundway\\STA_Soundway_Drums",
+        "GUID": "{39936BA1-15D0-4F40-8A19-DC8D67BA953C}"
+       },
+       {
+        "Id": "1564156445",
+        "Name": "STA_Soundway_Synth",
+        "ObjectPath": "\\States\\Default Work Unit\\STA_Soundway\\STA_Soundway_Synth",
+        "GUID": "{5BE15A9E-A959-4D3F-84E4-B60C5AA2E4DB}"
        }
       ]
      }
     ]
    }
   ],
-  "FileHash": "{ACDDC55C-6FB1-8DE6-D696-62BE4B9251CE}"
+  "FileHash": "{87D07B11-9616-8FB8-E4B1-4AE20D7C3680}"
  }
 }
