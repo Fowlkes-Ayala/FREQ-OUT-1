@@ -2,12 +2,6 @@ using UnityEngine;
 
 namespace DefaultNamespace
 {
-    public enum CoinPattern
-    {
-        None,
-        SingleCenter
-    }
-    
     [CreateAssetMenu(fileName = "Song Data", menuName = "Song", order = 0)]
     public class SongData : ScriptableObject
     {
@@ -15,14 +9,14 @@ namespace DefaultNamespace
         [SerializeField] public int BPM;
         [SerializeField, Min(0)] public int totalMeasures;
 
-        [SerializeField] public CoinPattern[] coinPatterns;
+        [SerializeField] public CoinPreset[] coinPatterns;
 
         private void OnValidate()
         {
             if (totalMeasures < 0) totalMeasures = 0;
             if (coinPatterns == null || coinPatterns.Length != totalMeasures)
             {
-                var newArray = new CoinPattern[totalMeasures];
+                var newArray = new CoinPreset[totalMeasures];
                 if (coinPatterns != null)
                 {
                     int copyCount = Mathf.Min(coinPatterns.Length, newArray.Length);
