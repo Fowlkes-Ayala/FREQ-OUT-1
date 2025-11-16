@@ -3,7 +3,7 @@
   "Project": {
    "Name": "FREQ-OUT_WwiseProject",
    "GUID": "{4C130900-7132-421F-BD3B-3981892B6FE0}",
-   "Generator": "2024.1.6.8842"
+   "Generator": "2024.1.9.8920"
   },
   "CacheRoot": "../../../../FREQ-OUT_WwiseProject/.cache",
   "Platforms": [
@@ -31,6 +31,6 @@
     "UseAsStandIn": "true"
    }
   ],
-  "FileHash": "{7FF8B95A-AC76-63B4-EEA2-09B5A59FBA9A}"
+  "FileHash": "{20197ECA-2AF2-F297-3D77-D9F1EADCF752}"
  }
 }

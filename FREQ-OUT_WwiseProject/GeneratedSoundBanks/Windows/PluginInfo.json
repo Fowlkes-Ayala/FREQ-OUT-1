@@ -11,20 +11,6 @@
     "StaticLib": "AkParametricEQFX"
    },
    {
-    "LibName": "Wwise Flanger",
-    "LibId": "8192003",
-    "Type": "Effect",
-    "DLL": "AkFlanger",
-    "StaticLib": "AkFlangerFX"
-   },
-   {
-    "LibName": "Wwise Pitch Shifter",
-    "LibId": "8912899",
-    "Type": "Effect",
-    "DLL": "AkPitchShifter",
-    "StaticLib": "AkPitchShifterFX"
-   },
-   {
     "LibName": "System",
     "LibId": "11403271",
     "Type": "AudioDevice"
@@ -35,6 +21,6 @@
     "Type": "AudioDevice"
    }
   ],
-  "FileHash": "{54110BF3-A1DF-5D87-398E-07682F2B18FC}"
+  "FileHash": "{C82BA0A5-79D2-CCB2-C45F-D33302A9A57E}"
  }
 }

@@ -143,6 +143,43 @@
 								</AudioFileSource>
 							</ChildrenList>
 							<ObjectLists>
+								<ObjectList Name="RTPC">
+									<Reference>
+										<Local>
+											<RTPC Name="" ID="{6180267C-3A27-4A87-A25F-2E3651532D00}" ShortID="481707142">
+												<PropertyList>
+													<Property Name="PropertyName" Type="string" Value="Volume"/>
+												</PropertyList>
+												<ReferenceList>
+													<Reference Name="ControlInput">
+														<ObjectRef Name="RTPC_MissedCoins" ID="{0A6DBF43-40D2-4116-9A84-A9EA8C4799E1}" WorkUnitID="{92104DAC-BCC5-43E3-BF8E-A26F507EE293}"/>
+													</Reference>
+													<Reference Name="Curve">
+														<Custom>
+															<Curve Name="" ID="{BADBA0A0-86D1-4389-855E-5E8BFAEA8302}">
+																<PropertyList>
+																	<Property Name="Flags" Type="int32" Value="3"/>
+																</PropertyList>
+																<PointList>
+																	<Point>
+																		<XPos>0</XPos>
+																		<YPos>0</YPos>
+																		<Flags>5</Flags>
+																	</Point>
+																	<Point>
+																		<XPos>4</XPos>
+																		<YPos>-200</YPos>
+																		<Flags>37</Flags>
+																	</Point>
+																</PointList>
+															</Curve>
+														</Custom>
+													</Reference>
+												</ReferenceList>
+											</RTPC>
+										</Local>
+									</Reference>
+								</ObjectList>
 								<ObjectList Name="Sequences">
 									<Reference>
 										<Local>

@@ -89,20 +89,12 @@ public class AudioManager : MonoBehaviour
 
     public void MissCoin()
     {
-        if (!m_IsMissing)
-        {
-            m_IsMissing = true;
-            AkUnitySoundEngine.PostEvent(AudioEventIDs.FirstMiss, m_GameObjectID);
-        }
+        AkUnitySoundEngine.PostEvent(AudioEventIDs.MissCoin, m_GameObjectID);
     }
 
     public void GetCoin()
     {
-        if (m_IsMissing)
-        {
-            m_IsMissing = false;
-            AkUnitySoundEngine.PostEvent(AudioEventIDs.StopMiss, m_GameObjectID);
-        }
+        AkUnitySoundEngine.PostEvent(AudioEventIDs.ResetCoins, m_GameObjectID);
     }
 
     void MusicCallback(object in_cookie, AkCallbackType in_eType, AkCallbackInfo in_pCallbackInfo)
@@ -150,6 +142,7 @@ public class AudioManager : MonoBehaviour
 
     void SpawnCoinPattern()
     {
+        if (m_CurrentCoinPattern >= CurrentSongData.coinPatterns.Length) { return; }
         UnityEngine.Splines.Spline spline = SoundwayManager.Instance.GetCurrentSpline();
         for (int i = 0; i < 4; i++)
         {
