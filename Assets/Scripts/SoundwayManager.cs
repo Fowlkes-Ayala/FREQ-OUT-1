@@ -68,6 +68,7 @@ namespace DefaultNamespace
         public void QueueSoundwaySwap(Soundway soundway)
         {
             AudioManager.Instance.QueueSoundwaySwitch(soundway.SoundwayState);
+            queuedSoundway = soundway;
         }
         private void OnSoundwaySwap()
         {
