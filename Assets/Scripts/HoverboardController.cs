@@ -31,7 +31,6 @@ public class HoverboardController : MonoBehaviour
     [SerializeField] private float swapCooldown = 0.5f;
     [SerializeField] private float swapSpeed = 0.2f;
 
-    private bool swapRight = true;
     private float swapCooldownTimer;
     private float steerValue = 0f;
     private float splineT = 0f; // normalized position along spline
@@ -53,18 +52,13 @@ public class HoverboardController : MonoBehaviour
         float horizontalInput = steerInput.x;
         float angle = maxRollAngle * horizontalInput;
         mesh.transform.localRotation = Quaternion.Euler(0f, 0f, -angle);
-        if (horizontalInput > 0)
-        {
-            swapRight = true;
-        }
-        else if (horizontalInput < 0)
-        {
-            swapRight = false;
-        }
     }
 
     public void OnSwap()
     {
+        bool swapRight;
+        if (currentSoundway.IsLeftSoundway) swapRight = true;
+        else swapRight = false;
         bool canSwap = SoundwayManager.Instance.CanSwapSoundways(swapRight, out var newSoundway);
         if (canSwap)
         {
