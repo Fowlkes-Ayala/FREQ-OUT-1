@@ -10,7 +10,7 @@
     "Type": "User",
     "GUID": "{10038EEF-2762-4F82-BB64-B706117A4271}",
     "Language": "SFX",
-    "Hash": "{C67941CF-E6DE-096B-FD4D-C7E3EFB96D7F}",
+    "Hash": "{B5D2F145-A142-0695-06D1-E0CD428E9057}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\BNK_Master",
     "ShortName": "BNK_Master",
     "Path": "BNK_Master.bnk",
@@ -40,12 +40,12 @@
       "CachePath": "B0/{B0E02AB2-B968-ECB0-1FA7-67314750275E}.wem"
      },
      {
-      "Id": "1070051827",
+      "Id": "797309527",
       "Language": "SFX",
       "Streaming": "false",
       "Location": "Memory",
-      "ShortName": "DJ_Scratch_1.wav",
-      "CachePath": "5E/{5E717004-08AA-74BA-0300-7306DA7CCC3A}.wem"
+      "ShortName": "FreqOut_Transition.wav",
+      "CachePath": "14/{140DF3C3-6160-9D36-2F24-E4CC0E00DAC6}.wem"
      }
     ],
     "Events": [
@@ -114,11 +114,11 @@
       "ObjectPath": "\\Events\\Default Work Unit\\EVT_Transition",
       "GUID": "{6550A858-0103-4CD8-8BC6-9B31FFA6BC94}",
       "DurationType": "OneShot",
-      "DurationMin": "0.64891154",
-      "DurationMax": "0.64891154",
+      "DurationMin": "2",
+      "DurationMax": "2",
       "MediaRefs": [
        {
-        "Id": "1070051827"
+        "Id": "797309527"
        }
       ]
      }
@@ -161,6 +161,6 @@
     ]
    }
   ],
-  "FileHash": "{C9E4E2FF-9907-445E-C989-A37F69DA1FF7}"
+  "FileHash": "{C509F580-7971-F25C-7EAE-1A62ABBE4AEA}"
  }
 }
