@@ -17,11 +17,9 @@ public class AudioManager : MonoBehaviour
     public event Action OnBeat;
     
     public SongData CurrentSongData;
-    
-    public int CurrentBeat { get; private set; } = 0;
-    public int CurrentMeasure => CurrentBeat / 4;
-    private bool swapSoundwayOnNextBeat = false;
+    public int CurrentMeasure = 0;
 
+    private bool m_IsFirstMeasure = true;
 
     public void Awake()
     {
@@ -43,7 +41,7 @@ public class AudioManager : MonoBehaviour
 
     public void StartMusic()
     {
-        uint bitmask = (uint)(AkCallbackType.AK_MusicSyncBeat | AkCallbackType.AK_MusicSyncEntry | AkCallbackType.AK_MusicSyncExit);
+        uint bitmask = (uint)(AkCallbackType.AK_MusicSyncBeat | AkCallbackType.AK_MusicSyncBar | AkCallbackType.AK_MusicSyncEntry | AkCallbackType.AK_MusicSyncExit);
         AkUnitySoundEngine.PostEvent(AudioEventIDs.Music_Prototype, m_GameObjectID, bitmask, MusicCallback, null);
     }
 
@@ -75,20 +73,31 @@ public class AudioManager : MonoBehaviour
         switch (in_eType)
         {
             case AkCallbackType.AK_MusicSyncBeat:
-                // TODO: Spawn coins a certain distance in front of you every beat
-                if (m_QueuedSoundway != null && m_QueuedSoundway.IsValid() && CurrentBeat % 4 == 0)
+                OnBeat?.Invoke();
+                break;
+            case AkCallbackType.AK_MusicSyncBar:
+                // Perform transition at the start of a measure if a soundway switch is queued
+                if (m_QueuedSoundway != null && m_QueuedSoundway.IsValid())
                 {
                     OnSoundwaySwitch?.Invoke();
                     AkUnitySoundEngine.PostEvent(AudioEventIDs.Transition, m_GameObjectID);
                     m_QueuedSoundway.SetValue();
                     m_QueuedSoundway = null;
                 }
-                CurrentBeat++;
-                OnBeat?.Invoke();
+
+                // Spawn a coin preset one measure in front of you every measure
+
+                if (!m_IsFirstMeasure)
+                {
+                    CurrentMeasure++;
+                }
+                else
+                {
+                    m_IsFirstMeasure = false;
+                }
                 break;
             case AkCallbackType.AK_MusicSyncEntry:
                 OnMusicStart?.Invoke();
-                CurrentBeat = 0;
                 break;
             case AkCallbackType.AK_MusicSyncExit:
                 OnMusicEnd?.Invoke();
