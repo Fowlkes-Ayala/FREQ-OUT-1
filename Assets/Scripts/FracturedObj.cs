@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using DG.Tweening;
 using UnityEngine;
@@ -11,15 +12,16 @@ namespace DefaultNamespace
         public GameObject IntactObjReference;
         public GameObject FracturedObjPrefab;
         public float explodeForce = 500f;
-        public void Explode()
+        public void Explode(Transform player)
         {
             IntactObjReference.SetActive(false);
-            foreach (Transform child in transform)
+            GameObject explode = Instantiate(FracturedObjPrefab, transform.position, Quaternion.identity, transform);
+            foreach (Transform child in explode.transform)
             {
                 if (child.TryGetComponent<Rigidbody>(out var rb))
                 {
-                    rb.isKinematic = false;
                     rb.AddExplosionForce(explodeForce, transform.position, 5f);
+                    rb.AddForce(player.forward * explodeForce, ForceMode.Impulse);
                 }
             }
 
@@ -31,6 +33,14 @@ namespace DefaultNamespace
             yield return new WaitForSeconds(shrinkDelay);
             transform.DOScale(0.0f, shrinkDuration).SetEase(Ease.InBack);
             Destroy(gameObject, shrinkDuration);
+        }
+
+        private void OnTriggerEnter(Collider other)
+        {
+            if (other.CompareTag("Player"))
+            {
+                Explode(other.transform);
+            }
         }
     }
 }
