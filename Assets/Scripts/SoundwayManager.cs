@@ -21,13 +21,18 @@ namespace DefaultNamespace
         private int currentSoundwayIndex = 0;
 
         public static SoundwayManager Instance;
-
+        public float RoadWidth = 5f;
 
         public Spline GetCurrentSpline()
         {
             return hoverboardController.GetCurrentSpline();    
         }
         
+        public float GetPlayerT()
+        {
+            return hoverboardController.GetNormalizedT();
+        }
+
         public bool IsRightmostSoundway()
         {
             return currentSoundway == rightSoundway ? true : false;

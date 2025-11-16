@@ -2,6 +2,9 @@ using System;
 using UnityEngine;
 using Audio.Generated;
 using DefaultNamespace;
+using UnityEngine.Splines;
+using Unity.Mathematics;
+using System.Collections;
 
 public class AudioManager : MonoBehaviour
 {
@@ -19,7 +22,11 @@ public class AudioManager : MonoBehaviour
     public SongData CurrentSongData;
     public int CurrentMeasure = 0;
 
+    private int m_CurrentCoinPattern = 0;
     private bool m_IsFirstMeasure = true;
+    float laneWidth;
+
+    [SerializeField] GameObject coinPrefab;
 
     public void Awake()
     {
@@ -36,7 +43,36 @@ public class AudioManager : MonoBehaviour
     private void Start()
     {
         m_GameObjectID = AkUnitySoundEngine.GetAkGameObjectID(gameObject);
+        laneWidth = SoundwayManager.Instance.RoadWidth / 4f;
         AkUnitySoundEngine.PostEvent(AudioEventIDs.Startup, m_GameObjectID); // Passing in IDs here because they have less latency
+        StartCoroutine(InitialCoins());
+    }
+
+    IEnumerator InitialCoins()
+    {
+        yield return null;
+        UnityEngine.Splines.Spline spline = SoundwayManager.Instance.GetCurrentSpline();
+        for (int j = 0; j < 2; j++)
+        {
+            m_CurrentCoinPattern = j;
+            for (int i = 0; i < 4; i++)
+            {
+                float lane = CurrentSongData.coinPatterns[m_CurrentCoinPattern].coinLanes[i];
+                if (lane == -1) { continue; }
+
+                spline.Evaluate(i / 32f + j / 8f, out var position, out var tangent, out var upVector);
+                Vector3 pos = new Vector3(position.x, position.y, position.z);
+                var splineRight = Vector3.Cross(upVector, tangent).normalized;
+
+                //pos -= splineRight * (SoundwayManager.Instance.RoadWidth / 2f);
+                //pos += (laneWidth/2f) * splineRight;
+                //pos += laneWidth * (i + 1) * splineRight;
+
+                pos += splineRight * (laneWidth * (lane + 0.5f) - SoundwayManager.Instance.RoadWidth / 2f);
+
+                Instantiate(coinPrefab, pos, Quaternion.identity);
+            }
+        }
     }
 
     public void StartMusic()
@@ -86,7 +122,12 @@ public class AudioManager : MonoBehaviour
                 }
 
                 // Spawn a coin preset one measure in front of you every measure
-
+                if (m_CurrentCoinPattern == CurrentMeasure)
+                {
+                    m_CurrentCoinPattern++;
+                    SpawnCoinPattern();
+                }
+                
                 if (!m_IsFirstMeasure)
                 {
                     CurrentMeasure++;
@@ -102,6 +143,28 @@ public class AudioManager : MonoBehaviour
             case AkCallbackType.AK_MusicSyncExit:
                 OnMusicEnd?.Invoke();
                 break;
+        }
+    }
+
+    void SpawnCoinPattern()
+    {
+        UnityEngine.Splines.Spline spline = SoundwayManager.Instance.GetCurrentSpline();
+        for (int i = 0; i < 4; i++)
+        {
+            float lane = CurrentSongData.coinPatterns[m_CurrentCoinPattern].coinLanes[i];
+            if (lane == -1) { continue; }
+
+            spline.Evaluate(SoundwayManager.Instance.GetPlayerT() + i / 32f + 1 / 8f, out var position, out var tangent, out var upVector);
+            Vector3 pos = new Vector3(position.x, position.y, position.z);
+            var splineRight = Vector3.Cross(upVector, tangent).normalized;
+
+            //pos -= splineRight * (SoundwayManager.Instance.RoadWidth / 2f);
+            //pos += (laneWidth/2f) * splineRight;
+            //pos += laneWidth * (i + 1) * splineRight;
+
+            pos += splineRight * (laneWidth * (lane + 0.5f) - SoundwayManager.Instance.RoadWidth / 2f);
+
+            Instantiate(coinPrefab, pos, Quaternion.identity);
         }
     }
 }
