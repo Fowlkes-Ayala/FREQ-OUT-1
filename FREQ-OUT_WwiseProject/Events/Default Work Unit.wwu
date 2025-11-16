@@ -77,7 +77,7 @@
 						<Action Name="" ID="{CB88B6AA-549E-474A-B1F6-46A5DC106CCF}" ShortID="113058726">
 							<ReferenceList>
 								<Reference Name="Target">
-									<ObjectRef Name="DJ_Scratch_1" ID="{7732FDFB-FD5F-4098-A166-BE78D738E616}" WorkUnitID="{5D25ACAD-5191-4401-A706-7ECD1C589282}"/>
+									<ObjectRef Name="FreqOut_Transition" ID="{8604F41E-C6C4-495B-B6DC-246FE28C4B63}" WorkUnitID="{5D25ACAD-5191-4401-A706-7ECD1C589282}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>
