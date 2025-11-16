@@ -1,8 +1,7 @@
 fileFormatVersion: 2
-guid: 56f504eeac6f64677b83cfa9ff99292a
-NativeFormatImporter:
+guid: 389250d696797554d91cc43711a52286
+AssemblyDefinitionImporter:
   externalObjects: {}
-  mainObjectFileID: 11400000
   userData: 
   assetBundleName: 
   assetBundleVariant: 
@@ -11,5 +10,5 @@ AssetOrigin:
   productId: 143368
   packageName: 'Flat Kit: Toon Shading and Water'
   packageVersion: 4.9.7
-  assetPath: Assets/FlatKit/[Readme].asset
-  uploadId: 778057
+  assetPath: Assets/FlatKit/Utils/FlatKit.Utils.Editor.asmdef
+  uploadId: 782196

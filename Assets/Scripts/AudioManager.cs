@@ -55,6 +55,7 @@ public class AudioManager : MonoBehaviour
         for (int j = 0; j < 2; j++)
         {
             m_CurrentCoinPattern = j;
+            Debug.Log("Coin sequence: " + m_CurrentCoinPattern);
             for (int i = 0; i < 4; i++)
             {
                 float lane = CurrentSongData.coinPatterns[m_CurrentCoinPattern].coinLanes[i];
@@ -70,7 +71,7 @@ public class AudioManager : MonoBehaviour
 
                 pos += splineRight * (laneWidth * (lane + 0.5f) - SoundwayManager.Instance.RoadWidth / 2f);
 
-                Instantiate(coinPrefab, pos, Quaternion.identity);
+                Instantiate(coinPrefab, pos, Quaternion.LookRotation(tangent, upVector));
             }
         }
     }
@@ -121,13 +122,6 @@ public class AudioManager : MonoBehaviour
                     m_QueuedSoundway = null;
                 }
 
-                // Spawn a coin preset one measure in front of you every measure
-                if (m_CurrentCoinPattern == CurrentMeasure)
-                {
-                    m_CurrentCoinPattern++;
-                    SpawnCoinPattern();
-                }
-                
                 if (!m_IsFirstMeasure)
                 {
                     CurrentMeasure++;
@@ -136,6 +130,14 @@ public class AudioManager : MonoBehaviour
                 {
                     m_IsFirstMeasure = false;
                 }
+
+                // Spawn a coin preset one measure in front of you every measure
+                if (m_CurrentCoinPattern == CurrentMeasure)
+                {
+                    m_CurrentCoinPattern++;
+                    SpawnCoinPattern();
+                }
+
                 break;
             case AkCallbackType.AK_MusicSyncEntry:
                 OnMusicStart?.Invoke();
@@ -164,7 +166,7 @@ public class AudioManager : MonoBehaviour
 
             pos += splineRight * (laneWidth * (lane + 0.5f) - SoundwayManager.Instance.RoadWidth / 2f);
 
-            Instantiate(coinPrefab, pos, Quaternion.identity);
+            Instantiate(coinPrefab, pos, Quaternion.LookRotation(tangent, upVector));
         }
     }
 }
