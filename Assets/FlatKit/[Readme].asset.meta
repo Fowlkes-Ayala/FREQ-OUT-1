@@ -1,11 +1,8 @@
 fileFormatVersion: 2
-guid: e7876b5b65fd9844a852a6352eb2c8c1
-MonoImporter:
+guid: 56f504eeac6f64677b83cfa9ff99292a
+NativeFormatImporter:
   externalObjects: {}
-  serializedVersion: 2
-  defaultReferences: []
-  executionOrder: 0
-  icon: {instanceID: 0}
+  mainObjectFileID: 11400000
   userData: 
   assetBundleName: 
   assetBundleVariant: 
@@ -14,5 +11,5 @@ AssetOrigin:
   productId: 143368
   packageName: 'Flat Kit: Toon Shading and Water'
   packageVersion: 4.9.7
-  assetPath: Assets/FlatKit/Utils/MeshSmoother.cs
-  uploadId: 778057
+  assetPath: Assets/FlatKit/[Readme].asset
+  uploadId: 782196
