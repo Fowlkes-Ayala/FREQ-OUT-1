@@ -246,6 +246,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6ba1a2c86f0d4d469acb82872dd8b99, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Coin
+  vfxPrefab: {fileID: 4228244948305289897, guid: e790f18cc74a76d45893ac293a3388b8, type: 3}
 --- !u!1 &7853673022499944281
 GameObject:
   m_ObjectHideFlags: 0
