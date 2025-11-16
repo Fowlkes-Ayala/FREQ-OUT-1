@@ -51,7 +51,7 @@ MonoBehaviour:
   SplineContainers:
   - {fileID: 2265684390703217585}
   Splines: []
-  TotalSplines: 7
+  TotalSplines: 10
   IsLeftSoundway: 0
   SoundwayState:
     idInternal: 0
@@ -59,6 +59,7 @@ MonoBehaviour:
     groupIdInternal: 0
     groupGuidInternal: 
     WwiseObjectReference: {fileID: 11400000, guid: d6161b413e39b4fed89fb3e56c720b0d, type: 2}
+  coinMaterial: {fileID: 2100000, guid: 1ede0dfa5d2335b4b8a083f38119f161, type: 2}
 --- !u!114 &2265684390703217585
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -615,6 +616,8 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -636,6 +639,7 @@ MeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0

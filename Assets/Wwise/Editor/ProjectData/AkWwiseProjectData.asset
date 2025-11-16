@@ -38,7 +38,7 @@ MonoBehaviour:
     ParentPath: Master-Mixer Hierarchy\Default Work Unit
     guid: 764f073ae31be444b9a8e6a26d4c83b4
     GuidInternal: 
-    m_lastTime: -8584383268850284945
+    m_lastTime: -8584383254516939980
     List:
     - name: BUS_Master
       guid: d8a41415a61d2a41a17e75ca0c2149f3
@@ -111,11 +111,11 @@ MonoBehaviour:
     ParentPath: Events\Default Work Unit
     guid: e02abdfb7e1c2c41a109f1c9243d791a
     GuidInternal: 
-    m_lastTime: -8584383685307319032
+    m_lastTime: -8584383257896130452
     List:
-    - name: EVT_FirstMiss
-      guid: e52d8faea4c6204b9a45f87bae37f947
-      id: 921806467
+    - name: EVT_MissCoin
+      guid: 6d358b17cec0654b8b20d503493b8b97
+      id: 3860227356
       PathAndIcons:
       - ElementName: Events
         ObjectType: 5
@@ -123,13 +123,13 @@ MonoBehaviour:
       - ElementName: Default Work Unit
         ObjectType: 12
         guid: e02abdfb7e1c2c41a109f1c9243d791a
-      - ElementName: EVT_FirstMiss
+      - ElementName: EVT_MissCoin
         ObjectType: 3
-        guid: e52d8faea4c6204b9a45f87bae37f947
-      Path: Events\Default Work Unit\EVT_FirstMiss
+        guid: 6d358b17cec0654b8b20d503493b8b97
+      Path: Events\Default Work Unit\EVT_MissCoin
       maxAttenuation: 0
-      maxDuration: 0.54657596
-      minDuration: 0.54657596
+      maxDuration: 0
+      minDuration: 0
     - name: EVT_Music_Prototype
       guid: ded2ddf347152a4b8a8a14cb4e4cd731
       id: 2835304931
@@ -147,6 +147,23 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: 69.333336
       minDuration: 69.333336
+    - name: EVT_ResetCoins
+      guid: c34ccbd531e76a479b5258104fcf5f8a
+      id: 3359172762
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: e02abdfb7e1c2c41a109f1c9243d791a
+      - ElementName: EVT_ResetCoins
+        ObjectType: 3
+        guid: c34ccbd531e76a479b5258104fcf5f8a
+      Path: Events\Default Work Unit\EVT_ResetCoins
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
     - name: EVT_Startup
       guid: 87b8ff7608f5164399274d2049b88a10
       id: 3332591570
@@ -161,23 +178,6 @@ MonoBehaviour:
         ObjectType: 3
         guid: 87b8ff7608f5164399274d2049b88a10
       Path: Events\Default Work Unit\EVT_Startup
-      maxAttenuation: 0
-      maxDuration: 0
-      minDuration: 0
-    - name: EVT_StopMiss
-      guid: 13933301915044409885cfa8c5e108bd
-      id: 3927013167
-      PathAndIcons:
-      - ElementName: Events
-        ObjectType: 5
-        guid: 00000000000000000000000000000000
-      - ElementName: Default Work Unit
-        ObjectType: 12
-        guid: e02abdfb7e1c2c41a109f1c9243d791a
-      - ElementName: EVT_StopMiss
-        ObjectType: 3
-        guid: 13933301915044409885cfa8c5e108bd
-      Path: Events\Default Work Unit\EVT_StopMiss
       maxAttenuation: 0
       maxDuration: 0
       minDuration: 0
@@ -198,40 +198,6 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: 0.64891154
       minDuration: 0.64891154
-    - name: Set_State_STA_Soundway_Drums
-      guid: cf38c74a725f2a409869e6d91db5bc0a
-      id: 2885463101
-      PathAndIcons:
-      - ElementName: Events
-        ObjectType: 5
-        guid: 00000000000000000000000000000000
-      - ElementName: Default Work Unit
-        ObjectType: 12
-        guid: e02abdfb7e1c2c41a109f1c9243d791a
-      - ElementName: Set_State_STA_Soundway_Drums
-        ObjectType: 3
-        guid: cf38c74a725f2a409869e6d91db5bc0a
-      Path: Events\Default Work Unit\Set_State_STA_Soundway_Drums
-      maxAttenuation: 0
-      maxDuration: 0
-      minDuration: 0
-    - name: Set_State_STA_Soundway_Synth
-      guid: 83ee7339d05307428803c3e030c490a1
-      id: 4248839292
-      PathAndIcons:
-      - ElementName: Events
-        ObjectType: 5
-        guid: 00000000000000000000000000000000
-      - ElementName: Default Work Unit
-        ObjectType: 12
-        guid: e02abdfb7e1c2c41a109f1c9243d791a
-      - ElementName: Set_State_STA_Soundway_Synth
-        ObjectType: 3
-        guid: 83ee7339d05307428803c3e030c490a1
-      Path: Events\Default Work Unit\Set_State_STA_Soundway_Synth
-      maxAttenuation: 0
-      maxDuration: 0
-      minDuration: 0
   RtpcWwu:
   - PhysicalPath: Game Parameters\Default Work Unit.wwu
     PathAndIcons:
@@ -244,8 +210,22 @@ MonoBehaviour:
     ParentPath: Game Parameters\Default Work Unit
     guid: ac4d1092c5bce343bf8ea26f507ee293
     GuidInternal: 
-    m_lastTime: -8584383757551942856
+    m_lastTime: -8584383249878327758
     List:
+    - name: RTPC_MissedCoins
+      guid: 43bf6d0ad24016419a84a9ea8c4799e1
+      id: 1251375150
+      PathAndIcons:
+      - ElementName: Game Parameters
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: ac4d1092c5bce343bf8ea26f507ee293
+      - ElementName: RTPC_MissedCoins
+        ObjectType: 13
+        guid: 43bf6d0ad24016419a84a9ea8c4799e1
+      Path: Game Parameters\Default Work Unit\RTPC_MissedCoins
     - name: RTPC_TransitionProgress
       guid: 7dd081ef4ebcf1408dd7f627531d8911
       id: 2184396047
@@ -272,74 +252,8 @@ MonoBehaviour:
     ParentPath: States\Default Work Unit
     guid: f7b140f5666c014b99c14de9860fdb84
     GuidInternal: 
-    m_lastTime: -8584383757509821546
+    m_lastTime: -8584383261879508343
     List:
-    - name: STA_GameState
-      guid: f3b65c4143d75e49bb46e673484aba15
-      id: 530992273
-      PathAndIcons:
-      - ElementName: States
-        ObjectType: 5
-        guid: 00000000000000000000000000000000
-      - ElementName: Default Work Unit
-        ObjectType: 12
-        guid: f7b140f5666c014b99c14de9860fdb84
-      - ElementName: STA_GameState
-        ObjectType: 9
-        guid: f3b65c4143d75e49bb46e673484aba15
-      Path: States\Default Work Unit\STA_GameState
-      values:
-      - name: None
-        guid: b1cac2a443872e4198e294b06445036b
-        id: 748895195
-        PathAndIcons:
-        - ElementName: States
-          ObjectType: 5
-          guid: 00000000000000000000000000000000
-        - ElementName: Default Work Unit
-          ObjectType: 12
-          guid: f7b140f5666c014b99c14de9860fdb84
-        - ElementName: STA_GameState
-          ObjectType: 9
-          guid: f3b65c4143d75e49bb46e673484aba15
-        - ElementName: None
-          ObjectType: 8
-          guid: b1cac2a443872e4198e294b06445036b
-      - name: STA_GameState_Good
-        guid: 3693b52c886855458a0cf824861cca0f
-        id: 776312611
-        PathAndIcons:
-        - ElementName: States
-          ObjectType: 5
-          guid: 00000000000000000000000000000000
-        - ElementName: Default Work Unit
-          ObjectType: 12
-          guid: f7b140f5666c014b99c14de9860fdb84
-        - ElementName: STA_GameState
-          ObjectType: 9
-          guid: f3b65c4143d75e49bb46e673484aba15
-        - ElementName: STA_GameState_Good
-          ObjectType: 8
-          guid: 3693b52c886855458a0cf824861cca0f
-      - name: STA_GameState_Miss
-        guid: 22cd0985cfd57e438156ded2d3c77535
-        id: 2780964940
-        PathAndIcons:
-        - ElementName: States
-          ObjectType: 5
-          guid: 00000000000000000000000000000000
-        - ElementName: Default Work Unit
-          ObjectType: 12
-          guid: f7b140f5666c014b99c14de9860fdb84
-        - ElementName: STA_GameState
-          ObjectType: 9
-          guid: f3b65c4143d75e49bb46e673484aba15
-        - ElementName: STA_GameState_Miss
-          ObjectType: 8
-          guid: 22cd0985cfd57e438156ded2d3c77535
-      ValueGuids: []
-      ValueIcons: []
-      valuesInternal: []
     - name: STA_Soundway
       guid: d34bf16c25de2b4983244dedcbbec1bd
       id: 4107555126

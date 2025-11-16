@@ -12,6 +12,7 @@ namespace DefaultNamespace
         public int TotalSplines;
         public bool IsLeftSoundway = false;
         [SerializeField] public AK.Wwise.State SoundwayState;
+        public Material coinMaterial;
 
         public void OnValidate()
         {

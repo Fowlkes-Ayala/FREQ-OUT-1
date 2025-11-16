@@ -149,6 +149,7 @@ public class AudioManager : MonoBehaviour
             if (lane == -1) { continue; }
 
             spline.Evaluate(SoundwayManager.Instance.GetPlayerT() + i / 32f + 1 / 8f, out var position, out var tangent, out var upVector);
+            position += upVector;
             Vector3 pos = new Vector3(position.x, position.y, position.z);
             var splineRight = Vector3.Cross(upVector, tangent).normalized;
 
@@ -159,7 +160,9 @@ public class AudioManager : MonoBehaviour
             pos += splineRight * (laneWidth * (lane + 0.5f) - SoundwayManager.Instance.RoadWidth / 2f);
 
             // TODO: If this game gets greenlit, use object pooling instead of instantiation to make this more efficient
-            Instantiate(coinPrefab, pos, Quaternion.LookRotation(tangent, upVector));
+            GameObject coin = Instantiate(coinPrefab, pos, Quaternion.LookRotation(tangent, upVector));
+            Debug.Log("Soundway: " + SoundwayManager.Instance.GetCurrentSoundway());
+            coin.GetComponent<MeshRenderer>().material = SoundwayManager.Instance.GetCurrentSoundway().coinMaterial;
         }
     }
 }
