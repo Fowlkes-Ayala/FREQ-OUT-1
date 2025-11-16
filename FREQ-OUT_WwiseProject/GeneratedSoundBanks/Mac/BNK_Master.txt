@@ -12,5 +12,5 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	399198200	Base	C:\Users\danie\Documents\GitHub\FREQ-OUT\FREQ-OUT_WwiseProject\.cache\CA\{CA30C95D-22BD-659B-181E-124BC6C2AAB1}.wem		\Interactive Music Hierarchy\Default Work Unit\MUS_PrototypeLevel\Base		13312160
 	520452962	Stems	C:\Users\danie\Documents\GitHub\FREQ-OUT\FREQ-OUT_WwiseProject\.cache\94\{949EFCED-D4FF-9C0E-D90C-2FBBE6C86EAE}.wem		\Interactive Music Hierarchy\Default Work Unit\MUS_PrototypeLevel\Stems		13312160
 	766056515	Stems	C:\Users\danie\Documents\GitHub\FREQ-OUT\FREQ-OUT_WwiseProject\.cache\B0\{B0E02AB2-B968-ECB0-1FA7-67314750275E}.wem		\Interactive Music Hierarchy\Default Work Unit\MUS_PrototypeLevel\Stems		13312160
-	1070051827	DJ_Scratch_1	C:\Users\danie\Documents\GitHub\FREQ-OUT\FREQ-OUT_WwiseProject\.cache\5E\{5E717004-08AA-74BA-0300-7306DA7CCC3A}.wem		\Actor-Mixer Hierarchy\Default Work Unit\DJ_Scratch_1		114564
+	797309527	FreqOut_Transition	C:\Users\danie\Documents\GitHub\FREQ-OUT\FREQ-OUT_WwiseProject\.cache\14\{140DF3C3-6160-9D36-2F24-E4CC0E00DAC6}.wem		\Actor-Mixer Hierarchy\Default Work Unit\FreqOut_Transition		384096
 
