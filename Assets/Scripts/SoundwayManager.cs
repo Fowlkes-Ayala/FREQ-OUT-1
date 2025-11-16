@@ -71,24 +71,8 @@ namespace DefaultNamespace
         }
         public bool CanSwapSoundways(bool isRight, out Soundway soundway)
         {
-            soundway = null;
-            if (isRight)
-            {
-                if (currentSoundwayIndex < soundways.Count - 1)
-                {
-                    currentSoundway = soundways[++currentSoundwayIndex];
-                    soundway = currentSoundway;
-                    return IsValidTimingForSoundwaySwap();
-                }
-                return false;
-            }
-            if (currentSoundwayIndex > 0)
-            {
-                currentSoundway = soundways[--currentSoundwayIndex];
-                soundway = currentSoundway;
-                return IsValidTimingForSoundwaySwap();
-            }
-            return false;
+            soundway = isRight ? rightSoundway : leftSoundway;
+            return IsValidTimingForSoundwaySwap();
         }
 
         public bool IsValidTimingForSoundwaySwap()
