@@ -44,6 +44,7 @@ public class HoverboardController : MonoBehaviour
     private Vector2 steerInput = Vector2.zero;
 
     private Soundway queuedSoundway = null;
+    private float normalizedT = 0f;
 
     public bool IsEnabled = false;
     public void OnSteer(InputValue value)
@@ -111,6 +112,11 @@ public class HoverboardController : MonoBehaviour
         return null;
     }
     
+    public float GetNormalizedT()
+    {
+        return normalizedT;
+    }
+
     public void Update()
     {
         if (!IsEnabled) return;
@@ -123,7 +129,7 @@ public class HoverboardController : MonoBehaviour
             // Advance normalized parameter
             splineT += splineNormalizedSpeed * Time.deltaTime;
 
-            float normalizedT = splineT - Mathf.Floor(splineT);
+            normalizedT = splineT - Mathf.Floor(splineT);
 
             // Sample spline (position + rotation)
             var sample = spline.Evaluate(normalizedT, out var position, out var tangent, out var up);
