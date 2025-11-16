@@ -16,7 +16,7 @@ MonoBehaviour:
   BPM: 180
   totalMeasures: 48
   coinPatterns:
-  - {fileID: 11400000, guid: 4bdd7cc414988734a9fc6f7a65b1a201, type: 2}
+  - {fileID: 11400000, guid: 660c64d12a52cf24b9af2aaaf22cff31, type: 2}
   - {fileID: 11400000, guid: f4648393ef0590b45acecd2089a54805, type: 2}
   - {fileID: 11400000, guid: 04931a279c7209e4a925336531287fce, type: 2}
   - {fileID: 11400000, guid: 1ea31609ca5c30248bb7e98c97ee8057, type: 2}
