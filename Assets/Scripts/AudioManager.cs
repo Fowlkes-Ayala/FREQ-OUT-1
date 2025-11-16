@@ -61,12 +61,9 @@ public class AudioManager : MonoBehaviour
                 if (lane == -1) { continue; }
 
                 spline.Evaluate(i / 32f + j / 8f, out var position, out var tangent, out var upVector);
+                position += upVector;
                 Vector3 pos = new Vector3(position.x, position.y, position.z);
                 var splineRight = Vector3.Cross(upVector, tangent).normalized;
-
-                //pos -= splineRight * (SoundwayManager.Instance.RoadWidth / 2f);
-                //pos += (laneWidth/2f) * splineRight;
-                //pos += laneWidth * (i + 1) * splineRight;
 
                 pos += splineRight * (laneWidth * (lane + 0.5f) - SoundwayManager.Instance.RoadWidth / 2f);
 
@@ -126,7 +123,19 @@ public class AudioManager : MonoBehaviour
                 if (m_CurrentCoinPattern == CurrentMeasure)
                 {
                     m_CurrentCoinPattern++;
-                    SpawnCoinPattern();
+                    if (m_CurrentCoinPattern % 8 == 0)
+                    {
+                        // Spawn at the beginning of the next spline on all soundways, 2 coin patterns
+                        SpawnCoinPattern(SoundwayManager.Instance.leftSoundway, 0f);
+                        SpawnCoinPattern(SoundwayManager.Instance.rightSoundway, 0f);
+                        SpawnCoinPattern(SoundwayManager.Instance.leftSoundway, 1f / 8f);
+                        SpawnCoinPattern(SoundwayManager.Instance.rightSoundway, 1f / 8f);
+                        m_CurrentCoinPattern++;
+                    }
+                    else
+                    {
+                        SpawnCoinPattern();
+                    }
                 }
 
                 break;
@@ -143,26 +152,57 @@ public class AudioManager : MonoBehaviour
     {
         if (m_CurrentCoinPattern >= CurrentSongData.coinPatterns.Length) { return; }
         UnityEngine.Splines.Spline spline = SoundwayManager.Instance.GetCurrentSpline();
+        int overridePlayerPos = 1;
+        // TODO: Make this better in like a year if this gets greenlit
+        if (m_CurrentCoinPattern % 8 == 1) { overridePlayerPos = 0; }
+
         for (int i = 0; i < 4; i++)
         {
             float lane = CurrentSongData.coinPatterns[m_CurrentCoinPattern].coinLanes[i];
             if (lane == -1) { continue; }
 
-            spline.Evaluate(SoundwayManager.Instance.GetPlayerT() + i / 32f + 1 / 8f, out var position, out var tangent, out var upVector);
+            spline.Evaluate(SoundwayManager.Instance.GetPlayerT() * overridePlayerPos + i / 32f + 1 / 8f, out var position, out var tangent, out var upVector);
             position += upVector;
             Vector3 pos = new Vector3(position.x, position.y, position.z);
             var splineRight = Vector3.Cross(upVector, tangent).normalized;
-
-            //pos -= splineRight * (SoundwayManager.Instance.RoadWidth / 2f);
-            //pos += (laneWidth/2f) * splineRight;
-            //pos += laneWidth * (i + 1) * splineRight;
 
             pos += splineRight * (laneWidth * (lane + 0.5f) - SoundwayManager.Instance.RoadWidth / 2f);
 
             // TODO: If this game gets greenlit, use object pooling instead of instantiation to make this more efficient
             GameObject coin = Instantiate(coinPrefab, pos, Quaternion.LookRotation(tangent, upVector));
-            Debug.Log("Soundway: " + SoundwayManager.Instance.GetCurrentSoundway());
             coin.GetComponent<MeshRenderer>().material = SoundwayManager.Instance.GetCurrentSoundway().coinMaterial;
+        }
+    }
+
+    void SpawnCoinPattern(Soundway soundway, float offset)
+    {
+        if (m_CurrentCoinPattern >= CurrentSongData.coinPatterns.Length) { return; }
+
+        UnityEngine.Splines.Spline spline;
+        if (soundway.IsLeftSoundway)
+        {
+            spline = soundway.GetSpline(m_CurrentCoinPattern / 8);
+        }
+        else
+        {
+            spline = soundway.GetSpline(m_CurrentCoinPattern / 8 - 1);
+        }
+
+        for (int i = 0; i < 4; i++)
+        {
+            float lane = CurrentSongData.coinPatterns[m_CurrentCoinPattern].coinLanes[i];
+            if (lane == -1) { continue; }
+
+            spline.Evaluate(i / 32f + offset, out var position, out var tangent, out var upVector);
+            position += upVector;
+            Vector3 pos = new Vector3(position.x, position.y, position.z);
+            var splineRight = Vector3.Cross(upVector, tangent).normalized;
+
+            pos += splineRight * (laneWidth * (lane + 0.5f) - SoundwayManager.Instance.RoadWidth / 2f);
+
+            // TODO: If this game gets greenlit, use object pooling instead of instantiation to make this more efficient
+            GameObject coin = Instantiate(coinPrefab, pos, Quaternion.LookRotation(tangent, upVector));
+            coin.GetComponent<MeshRenderer>().material = soundway.coinMaterial;
         }
     }
 }
