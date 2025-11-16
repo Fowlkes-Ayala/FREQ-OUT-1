@@ -21,13 +21,18 @@ namespace DefaultNamespace
         private int currentSoundwayIndex = 0;
 
         public static SoundwayManager Instance;
-
+        public float RoadWidth = 5f;
 
         public Spline GetCurrentSpline()
         {
             return hoverboardController.GetCurrentSpline();    
         }
         
+        public float GetPlayerT()
+        {
+            return hoverboardController.GetNormalizedT();
+        }
+
         public bool IsRightmostSoundway()
         {
             return currentSoundway == rightSoundway ? true : false;
@@ -71,24 +76,8 @@ namespace DefaultNamespace
         }
         public bool CanSwapSoundways(bool isRight, out Soundway soundway)
         {
-            soundway = null;
-            if (isRight)
-            {
-                if (currentSoundwayIndex < soundways.Count - 1)
-                {
-                    currentSoundway = soundways[++currentSoundwayIndex];
-                    soundway = currentSoundway;
-                    return IsValidTimingForSoundwaySwap();
-                }
-                return false;
-            }
-            if (currentSoundwayIndex > 0)
-            {
-                currentSoundway = soundways[--currentSoundwayIndex];
-                soundway = currentSoundway;
-                return IsValidTimingForSoundwaySwap();
-            }
-            return false;
+            soundway = isRight ? rightSoundway : leftSoundway;
+            return IsValidTimingForSoundwaySwap();
         }
 
         public bool IsValidTimingForSoundwaySwap()

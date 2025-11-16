@@ -111,7 +111,7 @@ MonoBehaviour:
     ParentPath: Events\Default Work Unit
     guid: e02abdfb7e1c2c41a109f1c9243d791a
     GuidInternal: 
-    m_lastTime: -8584383757552200406
+    m_lastTime: -8584383685307319032
     List:
     - name: EVT_FirstMiss
       guid: e52d8faea4c6204b9a45f87bae37f947
@@ -198,6 +198,40 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: 0
       minDuration: 0
+    - name: Set_State_STA_Soundway_Drums
+      guid: cf38c74a725f2a409869e6d91db5bc0a
+      id: 2885463101
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: e02abdfb7e1c2c41a109f1c9243d791a
+      - ElementName: Set_State_STA_Soundway_Drums
+        ObjectType: 3
+        guid: cf38c74a725f2a409869e6d91db5bc0a
+      Path: Events\Default Work Unit\Set_State_STA_Soundway_Drums
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: Set_State_STA_Soundway_Synth
+      guid: 83ee7339d05307428803c3e030c490a1
+      id: 4248839292
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: e02abdfb7e1c2c41a109f1c9243d791a
+      - ElementName: Set_State_STA_Soundway_Synth
+        ObjectType: 3
+        guid: 83ee7339d05307428803c3e030c490a1
+      Path: Events\Default Work Unit\Set_State_STA_Soundway_Synth
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
   RtpcWwu:
   - PhysicalPath: Game Parameters\Default Work Unit.wwu
     PathAndIcons:

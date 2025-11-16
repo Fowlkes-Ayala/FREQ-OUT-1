@@ -7,50 +7,30 @@ namespace DefaultNamespace
     public class SoundwayUI : MonoBehaviour
     {
         public float pulseSize = 1.3f;
-        public float pulseDuration = 0.2f;
+        public float pulseDuration = 0.3f;
         private SoundwayManager _soundwayManager;
-        public Image _rightSoundwayImage;
-        public Image _leftSoundwayImage;
+        public Image _soundwayIndicatorImage;
         
         private void Start()
         {
             _soundwayManager = SoundwayManager.Instance;
-            DisableBothSoundwayImages();
+            _soundwayIndicatorImage.enabled = false;
             AudioManager.Instance.OnBeat += OnBeatChanged;
-        }
-        
-        private void DisableBothSoundwayImages()
-        {
-            _rightSoundwayImage.enabled = false;
-            _leftSoundwayImage.enabled = false;
         }
 
         private void OnBeatChanged()
         {
-            Pulse(_rightSoundwayImage.transform);
-            Pulse(_leftSoundwayImage.transform);
+            _soundwayIndicatorImage.rectTransform.DOScale(pulseSize, pulseDuration)
+                .SetEase(Ease.Linear)
+                .SetLoops(1, LoopType.Yoyo);
             if (_soundwayManager.IsValidTimingForSoundwaySwap())
             {
-                if (!_soundwayManager.IsRightmostSoundway())
-                {
-                    _rightSoundwayImage.enabled = true;
-                }
-                else
-                {
-                    _leftSoundwayImage.enabled = true;
-                }
+                _soundwayIndicatorImage.enabled = true;
             }
             else
             {
-                DisableBothSoundwayImages();
+                _soundwayIndicatorImage.enabled = false;
             }
-        }
-
-        private void Pulse(Transform transform)
-        {
-            transform.DOScale(new Vector3(pulseSize, pulseSize, pulseSize), pulseDuration / 2)
-                .SetEase(Ease.Linear)
-                .SetLoops(1, LoopType.Yoyo);
         }
         
     }

@@ -47,6 +47,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AudioManager
   CurrentSongData: {fileID: 11400000, guid: 7364c6374a0ee468ea0bd7cee918f97f, type: 2}
+  CurrentMeasure: 0
+  coinPrefab: {fileID: 422032285434778510, guid: ccf7aa04df3e4e84bb7d7363cae48b7a, type: 3}
 --- !u!114 &1465866540213327093
 MonoBehaviour:
   m_ObjectHideFlags: 0

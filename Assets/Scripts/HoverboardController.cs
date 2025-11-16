@@ -5,6 +5,7 @@ using DG.Tweening;
 using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 using UnityEngine.Serialization;
 using UnityEngine.Splines;
 
@@ -43,6 +44,7 @@ public class HoverboardController : MonoBehaviour
     private Vector2 steerInput = Vector2.zero;
 
     private Soundway queuedSoundway = null;
+    private float normalizedT = 0f;
 
     public bool IsEnabled = false;
     public void OnSteer(InputValue value)
@@ -70,6 +72,12 @@ public class HoverboardController : MonoBehaviour
             queuedSoundway = newSoundway;
         }
     }
+
+    public void OnRestart()
+    {
+        AkUnitySoundEngine.StopAll();
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
     
     public void OnSoundwaySwap()
     {
@@ -94,23 +102,26 @@ public class HoverboardController : MonoBehaviour
     {
         if (currentSoundway != null)
         {
-            var splineContainer = currentSoundway.SplineContainer;
-            int splineIndex = Mathf.Clamp((int)(splineT), 0, splineContainer.Splines.Count - 1);
+            int splineIndex = Mathf.Clamp((int)(splineT), 0, SoundwayManager.Instance.SplineSegments-1);
             if (currentSoundway == SoundwayManager.Instance.rightSoundway && splineIndex > 0)
             {
                 splineIndex--;
             }
-            return splineContainer.Splines[splineIndex];
+            return currentSoundway.GetSpline(splineIndex);
         }
         return null;
     }
     
-    public void Update()    
+    public float GetNormalizedT()
+    {
+        return normalizedT;
+    }
+
+    public void Update()
     {
         if (!IsEnabled) return;
         if (currentSoundway != null)
         {
-            var splineContainer = currentSoundway.SplineContainer;
 
             var spline = GetCurrentSpline();
             float splineNormalizedSpeed = 1.0f / timePerSegment;
@@ -118,7 +129,7 @@ public class HoverboardController : MonoBehaviour
             // Advance normalized parameter
             splineT += splineNormalizedSpeed * Time.deltaTime;
 
-            float normalizedT = splineT - Mathf.Floor(splineT);
+            normalizedT = splineT - Mathf.Floor(splineT);
 
             // Sample spline (position + rotation)
             var sample = spline.Evaluate(normalizedT, out var position, out var tangent, out var up);
