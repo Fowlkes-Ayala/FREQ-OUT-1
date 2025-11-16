@@ -10,6 +10,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1b94b33a27322ae449f4bf71bcefeafc, type: 3}
-  m_Name: Test
+  m_Name: XXXo_Mid_R
   m_EditorClassIdentifier: Assembly-CSharp::CoinPreset
-  coinLanes: 00000000010000000200000003000000
+  coinLanes: 020000000200000002000000ffffffff
