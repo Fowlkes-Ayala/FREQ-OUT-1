@@ -144,13 +144,18 @@ public class HoverboardController : MonoBehaviour
         }
         if (queuedSoundway != null && swapTween == null)
         {
-            // Vector3 startPos = transform.position;
-            // Vector3 endPos = queuedSoundway.SplineContainer.Splines[0].;
-            // swapTween = transform.DOMove(endPos, swapSpeed).SetEase(Ease.InOutSine).OnComplete(() =>
-            // {
-            //     swapTween = null;
-            //     OnSoundwaySwap();
-            // });
+            queuedSoundway.GetSpline(0).Evaluate(0.0f, out var position, out var tangent, out var up);
+            swapTween = transform.DORotate(Quaternion.LookRotation(tangent, up).eulerAngles,
+                    AudioManager.Instance.TimePerBeat*2)
+                .SetEase(Ease.InOutSine);
+        }
+    }
+
+    public void OnDestroy()
+    {
+        if (swapTween != null)
+        {
+            swapTween.Kill();
         }
     }
 }
