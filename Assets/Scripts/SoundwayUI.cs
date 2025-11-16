@@ -1,5 +1,6 @@
 using DG.Tweening;
 using UnityEngine;
+using UnityEngine.Splines;
 using UnityEngine.UI;
 
 namespace DefaultNamespace
@@ -26,6 +27,11 @@ namespace DefaultNamespace
             if (_soundwayManager.IsValidTimingForSoundwaySwap())
             {
                 _soundwayIndicatorImage.enabled = true;
+                _soundwayManager.CanSwapSoundways(_soundwayManager.IsRightmostSoundway(), out var newSoundway);
+                newSoundway.GetSpline(0).Evaluate(0.01f, out var position, out var tangent, out var up);
+                _soundwayIndicatorImage.rectTransform.position = position;
+                if (Camera.main != null)
+                    _soundwayIndicatorImage.rectTransform.LookAt(Camera.main.transform, Vector3.up);
             }
             else
             {
