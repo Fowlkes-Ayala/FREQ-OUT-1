@@ -17,18 +17,6 @@ namespace DefaultNamespace
             _soundwayManager = SoundwayManager.Instance;
             _soundwayIndicatorImage.enabled = false;
             AudioManager.Instance.OnBeat += OnBeatChanged;
-            AudioManager.Instance.OnQueueSoundwaySwitch += OnQueueSoundwaySwitch;
-            AudioManager.Instance.OnSoundwaySwitch += OnSoundwaySwitch;
-        }
-        
-        private void OnSoundwaySwitch()
-        {
-            _soundwayIndicatorImage.color = Color.white;
-        }
-        
-        private void OnQueueSoundwaySwitch()
-        {
-            _soundwayIndicatorImage.color = Color.green;
         }
 
         private void OnBeatChanged()
@@ -40,9 +28,10 @@ namespace DefaultNamespace
             {
                 _soundwayIndicatorImage.enabled = true;
                 _soundwayManager.CanSwapSoundways(_soundwayManager.IsRightmostSoundway(), out var newSoundway);
-                // newSoundway.GetSpline(0).Evaluate(0.0f, out var position, out var tangent, out var up);
-                // if (Camera.main != null)
-                //     _soundwayIndicatorImage.rectTransform.LookAt(Camera.main.transform, Vector3.up);
+                newSoundway.GetSpline(0).Evaluate(0.01f, out var position, out var tangent, out var up);
+                _soundwayIndicatorImage.rectTransform.position = position;
+                if (Camera.main != null)
+                    _soundwayIndicatorImage.rectTransform.LookAt(Camera.main.transform, Vector3.up);
             }
             else
             {

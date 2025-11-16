@@ -17,7 +17,6 @@ public class AudioManager : MonoBehaviour
     public event Action OnMusicStart;
     public event Action OnMusicEnd;
     public event Action OnSoundwaySwitch;
-    public event Action OnQueueSoundwaySwitch;
     public event Action OnBeat;
     
     public SongData CurrentSongData;
@@ -84,7 +83,6 @@ public class AudioManager : MonoBehaviour
     public void QueueSoundwaySwitch(AK.Wwise.State state)
     {
         m_QueuedSoundway = state;
-        OnQueueSoundwaySwitch?.Invoke();
     }
 
     public void MissCoin()
