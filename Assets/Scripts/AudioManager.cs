@@ -55,7 +55,6 @@ public class AudioManager : MonoBehaviour
         for (int j = 0; j < 2; j++)
         {
             m_CurrentCoinPattern = j;
-            Debug.Log("Coin sequence: " + m_CurrentCoinPattern);
             for (int i = 0; i < 4; i++)
             {
                 float lane = CurrentSongData.coinPatterns[m_CurrentCoinPattern].coinLanes[i];
@@ -89,20 +88,12 @@ public class AudioManager : MonoBehaviour
 
     public void MissCoin()
     {
-        if (!m_IsMissing)
-        {
-            m_IsMissing = true;
-            AkUnitySoundEngine.PostEvent(AudioEventIDs.FirstMiss, m_GameObjectID);
-        }
+        AkUnitySoundEngine.PostEvent(AudioEventIDs.MissCoin, m_GameObjectID);
     }
 
     public void GetCoin()
     {
-        if (m_IsMissing)
-        {
-            m_IsMissing = false;
-            AkUnitySoundEngine.PostEvent(AudioEventIDs.StopMiss, m_GameObjectID);
-        }
+        AkUnitySoundEngine.PostEvent(AudioEventIDs.ResetCoins, m_GameObjectID);
     }
 
     void MusicCallback(object in_cookie, AkCallbackType in_eType, AkCallbackInfo in_pCallbackInfo)
@@ -150,6 +141,7 @@ public class AudioManager : MonoBehaviour
 
     void SpawnCoinPattern()
     {
+        if (m_CurrentCoinPattern >= CurrentSongData.coinPatterns.Length) { return; }
         UnityEngine.Splines.Spline spline = SoundwayManager.Instance.GetCurrentSpline();
         for (int i = 0; i < 4; i++)
         {
@@ -166,6 +158,7 @@ public class AudioManager : MonoBehaviour
 
             pos += splineRight * (laneWidth * (lane + 0.5f) - SoundwayManager.Instance.RoadWidth / 2f);
 
+            // TODO: If this game gets greenlit, use object pooling instead of instantiation to make this more efficient
             Instantiate(coinPrefab, pos, Quaternion.LookRotation(tangent, upVector));
         }
     }

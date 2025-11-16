@@ -1,20 +1,13 @@
 State Group	ID	Name			Wwise Object Path	Notes
-	530992273	STA_GameState			\Default Work Unit\STA_GameState	
 	4107555126	STA_Soundway			\Default Work Unit\STA_Soundway	
 
 State	ID	Name	State Group			Notes
-	748895195	None	STA_GameState			
-	776312611	STA_GameState_Good	STA_GameState			
-	2780964940	STA_GameState_Miss	STA_GameState			
 	748895195	None	STA_Soundway			
 	1006606944	STA_Soundway_Drums	STA_Soundway			
 	1564156445	STA_Soundway_Synth	STA_Soundway			
 
 Game Parameter	ID	Name			Wwise Object Path	Notes
-	2184396047	RTPC_TransitionProgress			\Default Work Unit\RTPC_TransitionProgress	
-
-Modulator Time	ID	Name			Wwise Object Path	Notes
-	425030532	Modulator Time (Custom)				
+	1251375150	RTPC_MissedCoins			\Default Work Unit\RTPC_MissedCoins	
 
 Audio Bus	ID	Name			Wwise Object Path	Notes
 	1162281553	BUS_Music			\Default Work Unit\BUS_Master\BUS_Music	
@@ -22,8 +15,6 @@ Audio Bus	ID	Name			Wwise Object Path	Notes
 
 Effect plug-ins	ID	Name	Type				Notes
 	290804841	Parametric EQ (Custom)	Wwise Parametric EQ			
-	538447896	Flanger (Custom)	Wwise Flanger			
-	733251018	Pitch Shifter (Custom)	Wwise Pitch Shifter			
 
 Audio Devices	ID	Name	Type				Notes
 	2317455096	No_Output	No Output			

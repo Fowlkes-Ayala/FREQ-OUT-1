@@ -10,7 +10,7 @@
     "Type": "User",
     "GUID": "{701ECBBD-9C7B-4030-8CDB-749EE5D1C7B9}",
     "Language": "SFX",
-    "Hash": "{E8C37027-4549-5B18-D931-531B0630566E}",
+    "Hash": "{2DF370AB-9B6B-0C1D-738F-E13BD72B3C3F}",
     "ObjectPath": "Init",
     "ShortName": "Init",
     "Path": "Init.bnk",
@@ -23,22 +23,6 @@
        "GUID": "{030854BB-548C-47BA-AC98-6A90047D695A}",
        "LibName": "Wwise Parametric EQ",
        "LibId": "6881283"
-      },
-      {
-       "Id": "538447896",
-       "Name": "Flanger (Custom)",
-       "ObjectPath": "\\Master-Mixer Hierarchy\\Default Work Unit\\BUS_Master\\BUS_Music\\[Effect Slot [1]: (Flanger)]\\Flanger (Custom)",
-       "GUID": "{F2A4EA9C-DC36-4A52-897E-FFDDD9895C27}",
-       "LibName": "Wwise Flanger",
-       "LibId": "8192003"
-      },
-      {
-       "Id": "733251018",
-       "Name": "Pitch Shifter (Custom)",
-       "ObjectPath": "\\Master-Mixer Hierarchy\\Default Work Unit\\BUS_Master\\BUS_Music\\[Effect Slot [2]: (Pitch Shifter)]\\Pitch Shifter (Custom)",
-       "GUID": "{CCF21250-9A7F-4C47-A1AA-1A2E385A12DE}",
-       "LibName": "Wwise Pitch Shifter",
-       "LibId": "8912899"
       }
      ],
      "AudioDevices": [
@@ -70,12 +54,6 @@
        "Custom": [
         {
          "Id": "290804841"
-        },
-        {
-         "Id": "538447896"
-        },
-        {
-         "Id": "733251018"
         }
        ]
       }
@@ -89,6 +67,12 @@
     ],
     "GameParameters": [
      {
+      "Id": "1251375150",
+      "Name": "RTPC_MissedCoins",
+      "ObjectPath": "\\Game Parameters\\Default Work Unit\\RTPC_MissedCoins",
+      "GUID": "{0A6DBF43-40D2-4116-9A84-A9EA8C4799E1}"
+     },
+     {
       "Id": "2184396047",
       "Name": "RTPC_TransitionProgress",
       "ObjectPath": "\\Game Parameters\\Default Work Unit\\RTPC_TransitionProgress",
@@ -96,32 +80,6 @@
      }
     ],
     "StateGroups": [
-     {
-      "Id": "530992273",
-      "Name": "STA_GameState",
-      "ObjectPath": "\\States\\Default Work Unit\\STA_GameState",
-      "GUID": "{415CB6F3-D743-495E-BB46-E673484ABA15}",
-      "States": [
-       {
-        "Id": "748895195",
-        "Name": "None",
-        "ObjectPath": "\\States\\Default Work Unit\\STA_GameState\\None",
-        "GUID": "{A4C2CAB1-8743-412E-98E2-94B06445036B}"
-       },
-       {
-        "Id": "776312611",
-        "Name": "STA_GameState_Good",
-        "ObjectPath": "\\States\\Default Work Unit\\STA_GameState\\STA_GameState_Good",
-        "GUID": "{2CB59336-6888-4555-8A0C-F824861CCA0F}"
-       },
-       {
-        "Id": "2780964940",
-        "Name": "STA_GameState_Miss",
-        "ObjectPath": "\\States\\Default Work Unit\\STA_GameState\\STA_GameState_Miss",
-        "GUID": "{8509CD22-D5CF-437E-8156-DED2D3C77535}"
-       }
-      ]
-     },
      {
       "Id": "4107555126",
       "Name": "STA_Soundway",
@@ -151,6 +109,6 @@
     ]
    }
   ],
-  "FileHash": "{96536A23-66E9-8157-693B-C47BD2F8E196}"
+  "FileHash": "{F961CE03-79FC-C83A-A325-381058ABAB14}"
  }
 }

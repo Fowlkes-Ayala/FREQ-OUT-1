@@ -13,13 +13,6 @@
 						<State Name="STA_Soundway_Synth" ID="{5BE15A9E-A959-4D3F-84E4-B60C5AA2E4DB}"/>
 					</ChildrenList>
 				</StateGroup>
-				<StateGroup Name="STA_GameState" ID="{415CB6F3-D743-495E-BB46-E673484ABA15}">
-					<ChildrenList>
-						<State Name="None" ID="{A4C2CAB1-8743-412E-98E2-94B06445036B}"/>
-						<State Name="STA_GameState_Miss" ID="{8509CD22-D5CF-437E-8156-DED2D3C77535}"/>
-						<State Name="STA_GameState_Good" ID="{2CB59336-6888-4555-8A0C-F824861CCA0F}"/>
-					</ChildrenList>
-				</StateGroup>
 			</ChildrenList>
 		</WorkUnit>
 	</States>

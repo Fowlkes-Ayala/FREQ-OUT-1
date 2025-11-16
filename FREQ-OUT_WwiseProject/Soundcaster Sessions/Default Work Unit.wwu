@@ -17,25 +17,9 @@
 							<ObjectRef Name="EVT_Transition" ID="{6550A858-0103-4CD8-8BC6-9B31FFA6BC94}" WorkUnitID="{FBBD2AE0-1C7E-412C-A109-F1C9243D791A}"/>
 							<Position X="2" Y="0"/>
 						</Module>
-						<Module>
-							<ObjectRef Name="Set_State_STA_Soundway_Drums" ID="{4AC738CF-5F72-402A-9869-E6D91DB5BC0A}" WorkUnitID="{FBBD2AE0-1C7E-412C-A109-F1C9243D791A}"/>
-							<Position X="3" Y="0"/>
-						</Module>
-						<Module>
-							<ObjectRef Name="Set_State_STA_Soundway_Synth" ID="{3973EE83-53D0-4207-8803-C3E030C490A1}" WorkUnitID="{FBBD2AE0-1C7E-412C-A109-F1C9243D791A}"/>
-							<Position X="3" Y="1"/>
-						</Module>
 					</ModuleList>
-					<RTPCValueList ShowAll="true">
-						<RTPCValue>
-							<GameParameterRef Name="RTPC_TransitionProgress" ID="{EF81D07D-BC4E-40F1-8DD7-F627531D8911}"/>
-							<Value>0</Value>
-						</RTPCValue>
-					</RTPCValueList>
-					<CurrentStateList ShowAll="true">
-						<CurrentStateRef Name="STA_Soundway_Synth" ID="{5BE15A9E-A959-4D3F-84E4-B60C5AA2E4DB}"/>
-						<CurrentStateRef Name="STA_GameState_Good" ID="{2CB59336-6888-4555-8A0C-F824861CCA0F}"/>
-					</CurrentStateList>
+					<RTPCValueList ShowAll="true"/>
+					<CurrentStateList ShowAll="true"/>
 					<CurrentSwitchList ShowAll="true"/>
 				</SoundcasterSession>
 			</ChildrenList>

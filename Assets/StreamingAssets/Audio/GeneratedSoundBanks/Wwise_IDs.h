@@ -13,27 +13,15 @@ namespace AK
 {
     namespace EVENTS
     {
-        static const AkUniqueID EVT_FIRSTMISS = 921806467U;
+        static const AkUniqueID EVT_MISSCOIN = 3860227356U;
         static const AkUniqueID EVT_MUSIC_PROTOTYPE = 2835304931U;
+        static const AkUniqueID EVT_RESETCOINS = 3359172762U;
         static const AkUniqueID EVT_STARTUP = 3332591570U;
-        static const AkUniqueID EVT_STOPMISS = 3927013167U;
         static const AkUniqueID EVT_TRANSITION = 1651390242U;
     } // namespace EVENTS
 
     namespace STATES
     {
-        namespace STA_GAMESTATE
-        {
-            static const AkUniqueID GROUP = 530992273U;
-
-            namespace STATE
-            {
-                static const AkUniqueID NONE = 748895195U;
-                static const AkUniqueID STA_GAMESTATE_GOOD = 776312611U;
-                static const AkUniqueID STA_GAMESTATE_MISS = 2780964940U;
-            } // namespace STATE
-        } // namespace STA_GAMESTATE
-
         namespace STA_SOUNDWAY
         {
             static const AkUniqueID GROUP = 4107555126U;
@@ -50,6 +38,7 @@ namespace AK
 
     namespace GAME_PARAMETERS
     {
+        static const AkUniqueID RTPC_MISSEDCOINS = 1251375150U;
         static const AkUniqueID RTPC_TRANSITIONPROGRESS = 2184396047U;
     } // namespace GAME_PARAMETERS
 

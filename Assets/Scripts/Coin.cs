@@ -6,9 +6,8 @@ public class Coin : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            Debug.Log("Got coin");
             AudioManager.Instance.GetCoin();
-            Destroy(gameObject);
+            Destroy(transform.parent.gameObject);
         }
     }
 }

@@ -11,10 +11,10 @@ namespace Audio.Generated
     /// </summary>
     public static class AudioEventIDs
     {
-        public const uint FirstMiss = 921806467u; // EVT_FirstMiss
+        public const uint MissCoin = 3860227356u; // EVT_MissCoin
         public const uint Music_Prototype = 2835304931u; // EVT_Music_Prototype
+        public const uint ResetCoins = 3359172762u; // EVT_ResetCoins
         public const uint Startup = 3332591570u; // EVT_Startup
-        public const uint StopMiss = 3927013167u; // EVT_StopMiss
         public const uint Transition = 1651390242u; // EVT_Transition
 
     }

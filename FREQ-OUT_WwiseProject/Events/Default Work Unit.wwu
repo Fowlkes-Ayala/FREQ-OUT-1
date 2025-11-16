@@ -16,13 +16,14 @@
 								</Reference>
 							</ReferenceList>
 						</Action>
-						<Action Name="" ID="{DB9F7E32-A509-4715-819C-FB4CFB11051F}" ShortID="581255954">
+						<Action Name="" ID="{68B26FE3-D14A-4574-A85B-4F46B5657D3E}" ShortID="254830141">
 							<PropertyList>
-								<Property Name="ActionType" Type="int16" Value="22"/>
+								<Property Name="ActionType" Type="int16" Value="38"/>
+								<Property Name="Scope" Type="int16" Value="1"/>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Target">
-									<ObjectRef Name="STA_GameState_Good" ID="{2CB59336-6888-4555-8A0C-F824861CCA0F}" WorkUnitID="{F540B1F7-6C66-4B01-99C1-4DE9860FDB84}"/>
+									<ObjectRef Name="RTPC_MissedCoins" ID="{0A6DBF43-40D2-4116-9A84-A9EA8C4799E1}" WorkUnitID="{92104DAC-BCC5-43E3-BF8E-A26F507EE293}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>
@@ -82,84 +83,33 @@
 						</Action>
 					</ChildrenList>
 				</Event>
-				<Event Name="EVT_FirstMiss" ID="{AE8F2DE5-C6A4-4B20-9A45-F87BAE37F947}">
+				<Event Name="EVT_MissCoin" ID="{178B356D-C0CE-4B65-8B20-D503493B8B97}">
 					<ChildrenList>
-						<Action Name="" ID="{5F123EF8-AD46-466F-B133-131F74A0E3C0}" ShortID="911092666">
-							<ReferenceList>
-								<Reference Name="Target">
-									<ObjectRef Name="DJ_Scratch_2" ID="{AA318C36-123B-4BF5-9925-FDA8545EE5D6}" WorkUnitID="{5D25ACAD-5191-4401-A706-7ECD1C589282}"/>
-								</Reference>
-							</ReferenceList>
-						</Action>
-						<Action Name="" ID="{93F027A2-2A71-49AF-98DA-0E28D1602D7A}" ShortID="623756014">
+						<Action Name="" ID="{150CB577-7076-4A87-8F17-7D10C2B467F0}" ShortID="796899873">
 							<PropertyList>
-								<Property Name="ActionType" Type="int16" Value="22"/>
+								<Property Name="AbsoluteOrRelative" Type="int16" Value="1"/>
+								<Property Name="ActionType" Type="int16" Value="38"/>
+								<Property Name="GameParameterValue" Type="Real64" Value="1"/>
+								<Property Name="Scope" Type="int16" Value="1"/>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Target">
-									<ObjectRef Name="STA_GameState_Miss" ID="{8509CD22-D5CF-437E-8156-DED2D3C77535}" WorkUnitID="{F540B1F7-6C66-4B01-99C1-4DE9860FDB84}"/>
+									<ObjectRef Name="RTPC_MissedCoins" ID="{0A6DBF43-40D2-4116-9A84-A9EA8C4799E1}" WorkUnitID="{92104DAC-BCC5-43E3-BF8E-A26F507EE293}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>
 					</ChildrenList>
 				</Event>
-				<Event Name="EVT_StopMiss" ID="{01339313-5091-4044-9885-CFA8C5E108BD}">
+				<Event Name="EVT_ResetCoins" ID="{D5CB4CC3-E731-476A-9B52-58104FCF5F8A}">
 					<ChildrenList>
-						<Action Name="" ID="{C3812E2B-F7F6-43CA-B9CD-7EAA0D3D9A37}" ShortID="1026726506">
+						<Action Name="" ID="{3BE51597-B3EA-439E-A2EA-CB0AB54FB8BE}" ShortID="929216118">
 							<PropertyList>
-								<Property Name="ActionType" Type="int16" Value="22"/>
+								<Property Name="ActionType" Type="int16" Value="38"/>
+								<Property Name="Scope" Type="int16" Value="1"/>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Target">
-									<ObjectRef Name="STA_GameState_Good" ID="{2CB59336-6888-4555-8A0C-F824861CCA0F}" WorkUnitID="{F540B1F7-6C66-4B01-99C1-4DE9860FDB84}"/>
-								</Reference>
-							</ReferenceList>
-						</Action>
-					</ChildrenList>
-				</Event>
-				<Event Name="Set_State_STA_Soundway_Drums" ID="{4AC738CF-5F72-402A-9869-E6D91DB5BC0A}">
-					<ChildrenList>
-						<Action Name="" ID="{CB851DCC-8A86-4D06-B163-98CBF0DA3B8C}" ShortID="724059839">
-							<PropertyList>
-								<Property Name="ActionType" Type="int16" Value="22"/>
-							</PropertyList>
-							<ReferenceList>
-								<Reference Name="Target">
-									<ObjectRef Name="STA_Soundway_Drums" ID="{39936BA1-15D0-4F40-8A19-DC8D67BA953C}" WorkUnitID="{F540B1F7-6C66-4B01-99C1-4DE9860FDB84}"/>
-								</Reference>
-							</ReferenceList>
-						</Action>
-						<Action Name="" ID="{ADE1E0E7-04F0-4133-9D3E-6342D825F277}" ShortID="498147487">
-							<PropertyList>
-								<Property Name="ActionType" Type="int16" Value="41"/>
-							</PropertyList>
-							<ReferenceList>
-								<Reference Name="Target">
-									<ObjectRef Name="EVT_Transition" ID="{6550A858-0103-4CD8-8BC6-9B31FFA6BC94}" WorkUnitID="{FBBD2AE0-1C7E-412C-A109-F1C9243D791A}"/>
-								</Reference>
-							</ReferenceList>
-						</Action>
-					</ChildrenList>
-				</Event>
-				<Event Name="Set_State_STA_Soundway_Synth" ID="{3973EE83-53D0-4207-8803-C3E030C490A1}">
-					<ChildrenList>
-						<Action Name="" ID="{ABB56A16-C762-447F-9479-D1DD0A02BD7B}" ShortID="954756896">
-							<PropertyList>
-								<Property Name="ActionType" Type="int16" Value="22"/>
-							</PropertyList>
-							<ReferenceList>
-								<Reference Name="Target">
-									<ObjectRef Name="STA_Soundway_Synth" ID="{5BE15A9E-A959-4D3F-84E4-B60C5AA2E4DB}" WorkUnitID="{F540B1F7-6C66-4B01-99C1-4DE9860FDB84}"/>
-								</Reference>
-							</ReferenceList>
-						</Action>
-						<Action Name="" ID="{9B96C26B-FBD4-4E5D-8207-2E5D23DBF5AA}" ShortID="39346660">
-							<PropertyList>
-								<Property Name="ActionType" Type="int16" Value="41"/>
-							</PropertyList>
-							<ReferenceList>
-								<Reference Name="Target">
-									<ObjectRef Name="EVT_Transition" ID="{6550A858-0103-4CD8-8BC6-9B31FFA6BC94}" WorkUnitID="{FBBD2AE0-1C7E-412C-A109-F1C9243D791A}"/>
+									<ObjectRef Name="RTPC_MissedCoins" ID="{0A6DBF43-40D2-4116-9A84-A9EA8C4799E1}" WorkUnitID="{92104DAC-BCC5-43E3-BF8E-A26F507EE293}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>
