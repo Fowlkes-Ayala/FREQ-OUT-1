@@ -7,7 +7,7 @@ public class Coin : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             AudioManager.Instance.GetCoin();
-            Destroy(gameObject);
+            Destroy(transform.parent.gameObject);
         }
     }
 }
