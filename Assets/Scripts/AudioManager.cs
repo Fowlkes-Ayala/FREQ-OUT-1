@@ -21,6 +21,8 @@ public class AudioManager : MonoBehaviour
     
     public SongData CurrentSongData;
     public int CurrentMeasure = 0;
+    public int CurrentBeat = 0;
+    public float TimePerBeat => 60f / CurrentSongData.BPM;
 
     private int m_CurrentCoinPattern = 0;
     private bool m_IsFirstMeasure = true;
@@ -99,6 +101,7 @@ public class AudioManager : MonoBehaviour
         {
             case AkCallbackType.AK_MusicSyncBeat:
                 OnBeat?.Invoke();
+                CurrentBeat++;
                 break;
             case AkCallbackType.AK_MusicSyncBar:
                 // Perform transition at the start of a measure if a soundway switch is queued
