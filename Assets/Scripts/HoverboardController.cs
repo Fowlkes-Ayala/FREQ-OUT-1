@@ -2,6 +2,7 @@ using System;
 using AK.Wwise;
 using DefaultNamespace;
 using DG.Tweening;
+using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Serialization;
@@ -118,21 +119,23 @@ public class HoverboardController : MonoBehaviour
             splineT += splineNormalizedSpeed * Time.deltaTime;
 
             float normalizedT = splineT - Mathf.Floor(splineT);
-            
-            
 
             // Sample spline (position + rotation)
-            var sample = spline.Evaluate(normalizedT, out var position,  out var tangent, out var up);
+            var sample = spline.Evaluate(normalizedT, out var position, out var tangent, out var up);
+            tangent = math.normalize(tangent);
+            up = math.normalize(up);
+            
             transform.position = position;
             transform.rotation = Quaternion.LookRotation(tangent, up);
-            var splineRight = Vector3.Cross(tangent, up).normalized;
             
             // Optionally apply lateral offset along the spline's right vector (strafe)
             if (Mathf.Abs(steerInput.x) > Mathf.Epsilon)
             {
-                steerOffset += steerSpeed * steerInput.x * Time.deltaTime;
-                mesh.transform.position += splineRight * (steerOffset);
+                float delta = steerSpeed * steerInput.x * Time.deltaTime;
+                steerOffset = Mathf.Clamp(steerOffset + delta, -steerMaxPositionOffset, steerMaxPositionOffset);
             }
+            mesh.transform.localPosition = steerOffset * Vector3.right;
+            
         }
         if (queuedSoundway != null && swapTween == null)
         {
