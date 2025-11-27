@@ -96,8 +96,41 @@ public class HoverboardController : MonoBehaviour
     
     public void OnSoundwaySwap()
     {
-        currentSoundway = queuedSoundway;
-        queuedSoundway = null;
+        // Update currentSoundway immediately so position follows the new soundway
+        // Rotation will be handled smoothly by the swap tween
+        if (queuedSoundway != null)
+        {
+            // Kill any existing tween
+            if (swapTween != null)
+            {
+                swapTween.Kill();
+                swapTween = null;
+            }
+            
+            currentSoundway = queuedSoundway;
+            queuedSoundway = null;
+            
+            // Create smooth rotation transition to match the new soundway
+            // Evaluate the new soundway at the current position
+            var currentSpline = GetCurrentSpline();
+            if (currentSpline != null)
+            {
+                currentSpline.Evaluate(normalizedT, out var position, out var tangent, out var up);
+                tangent = math.normalize(tangent);
+                up = math.normalize(up);
+                
+                Quaternion targetRot = Quaternion.LookRotation(tangent, up);
+                
+                // Smoothly rotate to match the new soundway's orientation
+                swapTween = transform.DORotate(targetRot.eulerAngles, AudioManager.Instance.TimePerBeat * 2)
+                    .SetEase(Ease.InOutSine)
+                    .OnComplete(() => {
+                        swapTween = null;
+                        // Update targetRotation to match so smooth interpolation can resume
+                        targetRotation = targetRot;
+                    });
+            }
+        }
     }
 
     private void OnMusicStart()
@@ -157,7 +190,12 @@ public class HoverboardController : MonoBehaviour
             
             // Set target position and rotation
             targetPosition = position;
-            targetRotation = Quaternion.LookRotation(tangent, up);
+            // Only update targetRotation if not in the middle of a soundway swap
+            // This prevents the disorienting rotation jump during transitions
+            if (swapTween == null)
+            {
+                targetRotation = Quaternion.LookRotation(tangent, up);
+            }
             
             // Smooth steering with acceleration/deceleration for responsive feel
             float steerInputX = steerInput.x;
@@ -185,9 +223,12 @@ public class HoverboardController : MonoBehaviour
             transform.position = Vector3.Lerp(transform.position, finalPosition, 
                 positionSmoothing * deltaTime);
             
-            // Smooth rotation interpolation
-            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, 
-                rotationSmoothing * deltaTime);
+            // Smooth rotation interpolation (skip during soundway swap to avoid conflict with DOTween)
+            if (swapTween == null)
+            {
+                transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, 
+                    rotationSmoothing * deltaTime);
+            }
             
             // Smooth roll angle interpolation for visual feedback
             currentRollAngle = Mathf.Lerp(currentRollAngle, targetRollAngle, 
@@ -195,13 +236,6 @@ public class HoverboardController : MonoBehaviour
             mesh.transform.localRotation = Quaternion.Euler(0f, 0f, -currentRollAngle);
         }
         
-        if (queuedSoundway != null && swapTween == null)
-        {
-            float time = (1 - normalizedT) * timePerSegment;
-            queuedSoundway.GetSpline(0).Evaluate(0.0f, out var position, out var tangent, out var up);
-            swapTween = transform.DORotate(Quaternion.LookRotation(tangent, up).eulerAngles,
-                time); 
-        }
     }
 
     public void OnDestroy()

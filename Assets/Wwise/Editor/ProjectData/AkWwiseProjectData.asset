@@ -111,7 +111,7 @@ MonoBehaviour:
     ParentPath: Events\Default Work Unit
     guid: e02abdfb7e1c2c41a109f1c9243d791a
     GuidInternal: 
-    m_lastTime: -8584383243436195277
+    m_lastTime: -8584382708745091470
     List:
     - name: EVT_MissCoin
       guid: 6d358b17cec0654b8b20d503493b8b97
@@ -196,8 +196,8 @@ MonoBehaviour:
         guid: 58a850650301d84c8bc69b31ffa6bc94
       Path: Events\Default Work Unit\EVT_Transition
       maxAttenuation: 0
-      maxDuration: 0.64891154
-      minDuration: 0.64891154
+      maxDuration: 2
+      minDuration: 2
   RtpcWwu:
   - PhysicalPath: Game Parameters\Default Work Unit.wwu
     PathAndIcons:
